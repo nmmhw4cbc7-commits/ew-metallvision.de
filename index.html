@@ -103,6 +103,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background: #111;
         }
 
         .image-container img {
@@ -163,6 +164,15 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        .designer-tag {
+            margin-top: 4rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.2);
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -178,7 +188,7 @@
             <div class="text-xl font-bold tracking-tighter uppercase">E & W METAL<span class="font-light opacity-50">VISION</span></div>
         </div>
         <div class="hidden md:flex gap-12 items-center">
-            <button onclick="openModal('Anfrage')" class="glass-card px-8 py-3.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">Direkt-Anfrage</button>
+            <button onclick="openModal()" class="glass-card px-8 py-3.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">Direkt-Anfrage</button>
         </div>
     </header>
 
@@ -201,49 +211,49 @@
             </div>
         </section>
 
-        <!-- Galerie Sektion mit neuen Begriffen -->
+        <!-- Galerie Sektion -->
         <section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="glass-card h-[600px] group cursor-pointer relative">
                 <div class="image-container absolute inset-0">
-                    <img src="https://unsplash.com/de/fotos/ein-hohes-gebaude-mit-einer-feuerleiter-daneben-QYBC9DVSC8A" alt="Industriehalle Metall">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop" alt="Industriehalle Metall">
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 <div class="absolute bottom-10 left-10 z-10">
                     <span class="text-orange-500 font-mono text-xs tracking-widest mb-2 block">GROSSPROJEKTE</span>
-                    <h4 class="text-3xl font-black uppercase tracking-tighter italic">Industriehalle</h4>
-                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Komplette Stahlbau-Lösungen für moderne Fertigungsstätten.</p>
+                    <h4 class="text-3xl font-black uppercase tracking-tighter italic">Industriehallenbau</h4>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Komplette Stahlbau-Lösungen für moderne Fertigungsstätten und Skelettbauten.</p>
                 </div>
             </div>
             <div class="grid grid-rows-2 gap-8">
                 <div class="glass-card group cursor-pointer relative h-full">
                     <div class="image-container absolute inset-0">
-                        <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=2070&auto=format&fit=crop" alt="Feuertreppe Stahl">
+                        <img src="https://images.unsplash.com/photo-1621905235858-62bcadaf2ffa?q=80&w=2000&auto=format&fit=crop" alt="Schweißarbeiten Präzision">
                     </div>
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                    <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-700"></div>
                     <div class="relative z-10 flex h-full items-end p-10">
                         <div>
-                            <h4 class="font-bold uppercase tracking-widest text-lg">Feuertreppe</h4>
-                            <p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Sicherheit & Normerfüllung</p>
+                            <h4 class="font-bold uppercase tracking-widest text-lg">Sicherheitssysteme</h4>
+                            <p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Feuertreppen & Fluchtwege</p>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-8">
                     <div class="glass-card group cursor-pointer relative h-full">
                         <div class="image-container absolute inset-0">
-                            <img src="https://images.unsplash.com/photo-1590234934177-70f90128766c?q=80&w=2070&auto=format&fit=crop" alt="Holzlagerschrank Metall">
+                            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1000&auto=format&fit=crop" alt="Metallbau Details">
                         </div>
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-700"></div>
                         <div class="relative z-10 flex h-full items-end p-6">
-                            <h4 class="font-bold uppercase text-xs tracking-widest">Holzlager</h4>
+                            <h4 class="font-bold uppercase text-xs tracking-widest">Sonderbau</h4>
                         </div>
                     </div>
                     <div class="glass-card group cursor-pointer relative h-full">
                         <div class="image-container absolute inset-0">
-                            <img src="https://images.unsplash.com/photo-1530124566582-aa61277e5b0f?q=80&w=2070&auto=format&fit=crop" alt="Bohrschlammrutsche">
+                            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1000&auto=format&fit=crop" alt="Stahlstruktur">
                         </div>
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-700"></div>
                         <div class="relative z-10 flex h-full items-end p-6">
-                            <h4 class="font-bold uppercase text-xs tracking-widest leading-tight">Schlammrutsche</h4>
+                            <h4 class="font-bold uppercase text-xs tracking-widest leading-tight">Präzision</h4>
                         </div>
                     </div>
                 </div>
@@ -302,7 +312,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter leading-tight">Planung, Montage & Wartung</h3>
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Wir begleiten Ihr Projekt ganzheitlich: Von der ersten Planungsskizze über den sicheren Transport und die fachgerechte Montage bis hin zur regelmäßigen Wartung Ihrer Anlagen.
+                        Wir begleiten Ihr Projekt ganzheitlich: Von der ersten Planungsskizze über den Transport bis hin zur fachgerechten Montage und Wartung Ihrer Anlagen.
                     </p>
                 </div>
             </div>
@@ -310,6 +320,9 @@
 
         <!-- Über Uns -->
         <section id="ueber" class="glass-card p-12 md:p-20 mb-56 relative overflow-hidden flex flex-col items-center text-center">
+            <div class="image-container absolute inset-0 opacity-10">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2000&auto=format&fit=crop" alt="Hintergrund Metallwerkstatt">
+            </div>
             <div class="relative z-10 w-full max-w-5xl">
                 <span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-6 uppercase">Über uns</span>
                 <h2 class="text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tighter uppercase">Metall ist unsere <br> <span class="metal-accent">Leidenschaft.</span></h2>
@@ -324,7 +337,7 @@
             </div>
         </section>
 
-        <!-- Impressum & Rechtliches -->
+        <!-- Impressum -->
         <section id="impressum" class="mb-56">
             <div class="glass-card p-12 md:p-20">
                 <h2 class="text-4xl font-black tracking-tighter uppercase mb-12 italic">Impressum.</h2>
@@ -339,12 +352,11 @@
                             <a href="http://www.ew-metalvision.de" class="text-orange-500">www.ew-metalvision.de</a>
                         </p>
                         <p class="mt-4">
-                            Registergericht der GmbH: Amtsgericht Oldenburg<br>
-                            Registernummer der GmbH: HRB 218924<br>
-                            Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE357580663
+                            Amtsgericht Oldenburg | HRB 218924<br>
+                            USt-IdNr.: DE357580663
                         </p>
 
-                        <h3>Vertretungsberechtiger Geschäftsführer</h3>
+                        <h3>Geschäftsführer</h3>
                         <p>Wilhelm Zerbin, Erwin Zerbin</p>
 
                         <h3>Kontakt</h3>
@@ -352,28 +364,15 @@
                             E-mail: info@ew-metalvision.de<br>
                             Telefon: +49 4408 9845368
                         </p>
-
-                        <h3>Verantwortlich gem. § 18 Abs. 2 MStV</h3>
-                        <p>
-                            Wilhelm Zerbin<br>
-                            Im Gewerbepark 4<br>
-                            27798 Hude<br>
-                            Deutschland
-                        </p>
                     </div>
 
                     <div class="legal-text">
-                        <h3>Streitbeilegung</h3>
-                        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" class="text-orange-500 underline">ec.europa.eu/consumers/odr</a>.</p>
-
-                        <h3>Haftung für Inhalte</h3>
-                        <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
-
-                        <h3>Urheberrecht</h3>
-                        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung bedarf der schriftlichen Zustimmung.</p>
+                        <h3>Rechtliches</h3>
+                        <p>Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr" class="text-orange-500 underline">ec.europa.eu/consumers/odr</a>.</p>
+                        <p class="mt-4">Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nicht verpflichtet und nicht bereit.</p>
                         
-                        <h3>Google Analytics</h3>
-                        <p class="text-[10px] italic mt-4 opacity-60">Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. Google Analytics verwendet „Cookies“, um eine Analyse der Benutzung der Website zu ermöglichen...</p>
+                        <h3>Urheberrecht</h3>
+                        <p>Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung.</p>
                     </div>
                 </div>
             </div>
@@ -388,7 +387,7 @@
         <div class="nav-item" onclick="scrollToSection('impressum')">Rechtliches</div>
     </nav>
 
-    <footer id="kontakt" class="px-6 pb-40 flex flex-col items-center">
+    <footer id="kontakt" class="px-6 pb-20 flex flex-col items-center">
         <div class="glass-card max-w-7xl w-full p-16 md:p-24">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                 <div class="lg:col-span-2">
@@ -396,7 +395,7 @@
                     <p class="text-gray-500 mb-10 max-w-sm">Meisterhafte Metallbearbeitung aus Hude. Wir setzen Ihre Visionen in Stahl um.</p>
                 </div>
                 <div>
-                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Zentrale</h4>
+                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Standort</h4>
                     <address class="not-italic text-gray-400 text-sm space-y-2">
                         Im Gewerbepark 4<br>
                         27798 Hude
@@ -408,18 +407,28 @@
                     <p class="text-gray-400 text-xs">info@ew-metalvision.de</p>
                 </div>
             </div>
+            
+            <!-- Designer Signatur -->
+            <div class="w-full flex justify-center">
+                <div class="designer-tag">Made by Philipp Dachtler</div>
+            </div>
         </div>
     </footer>
 
+    <!-- Anfrage Modal -->
     <div id="infoModal" class="modal">
         <div class="glass-card p-12 max-w-xl w-full relative">
-            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500">X</button>
-            <h2 class="text-3xl font-black mb-8 italic tracking-tighter text-orange-500 uppercase">ANFRAGE</h2>
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="text-3xl font-black mb-8 italic tracking-tighter text-orange-500 uppercase">Projektanfrage</h2>
             <div id="modalContent" class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all">
-                <input type="email" placeholder="E-Mail" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all">
-                <textarea placeholder="Nachricht..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-32 outline-none focus:border-orange-500 transition-all"></textarea>
-                <button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 transition-all uppercase">Senden</button>
+                <input type="text" placeholder="Name / Unternehmen" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-white">
+                <input type="email" placeholder="E-Mail Adresse" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-white">
+                <textarea placeholder="Beschreiben Sie Ihr Vorhaben..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-32 outline-none focus:border-orange-500 transition-all text-white"></textarea>
+                <button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 transition-all uppercase shadow-lg">Nachricht senden</button>
             </div>
         </div>
     </div>
@@ -427,14 +436,56 @@
     <script>
         function scrollToSection(id) {
             const el = document.getElementById(id);
-            if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+            if (el) window.scrollTo({ top: el.offsetTop - 120, behavior: 'smooth' });
+            
+            // Update Active State in Nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                if(item.innerText.toLowerCase() === id.replace('impressum', 'rechtliches').replace('ueber', 'über uns').toLowerCase() || (id === 'home' && item.innerText === 'Home')) {
+                    item.classList.add('active');
+                }
+            });
         }
-        function openModal() { document.getElementById('infoModal').classList.add('active'); }
-        function closeModal() { document.getElementById('infoModal').classList.remove('active'); }
+
+        function openModal() { 
+            const modal = document.getElementById('infoModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() { 
+            const modal = document.getElementById('infoModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         function showSuccess() {
-            document.getElementById('modalContent').innerHTML = '<div class="text-center py-10 font-bold">Danke! Wir melden uns.</div>';
-            setTimeout(closeModal, 2000);
+            document.getElementById('modalContent').innerHTML = `
+                <div class="text-center py-10">
+                    <div class="text-orange-500 text-5xl mb-4">✓</div>
+                    <div class="font-bold text-xl uppercase italic">Vielen Dank!</div>
+                    <p class="text-gray-400 mt-2 text-sm">Ihre Vision ist bei uns eingegangen. <br> Wir melden uns zeitnah bei Ihnen.</p>
+                </div>`;
+            setTimeout(closeModal, 3000);
         }
+
+        // Simple Scroll Animation Observer
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(30px)";
+            section.style.transition = "all 1s cubic-bezier(0.16, 1, 0.3, 1)";
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
