@@ -99,7 +99,6 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #111; /* Fallback Hintergrund */
         }
 
         .image-container img {
@@ -188,26 +187,23 @@
             </div>
         </section>
 
-        <!-- Galerie mit Flexx-Arbeiten und Metallbearbeitung -->
+        <!-- Gallery / Impressionen mit Stockfotos -->
         <section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Bild 1: Haupt-Impression (Flexx/Winkelschleifer mit Funkenflug) -->
             <div class="glass-card h-[600px] group cursor-pointer relative">
                 <div class="image-container absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?q=80&w=2070&auto=format&fit=crop" alt="Schleifarbeiten mit Winkelschleifer und Funkenflug">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" alt="Metallbearbeitung Funkenflug">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div class="absolute bottom-10 left-10 z-10">
                     <span class="text-orange-500 font-mono text-xs tracking-widest mb-2 block">HANDWERK</span>
                     <h4 class="text-3xl font-black uppercase tracking-tighter italic">Echte Präzision</h4>
-                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Feinschliff und Flexx-Arbeiten für makellose Oberflächen.</p>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Live-Eindrücke unserer täglichen Arbeit mit Stahl und Feuer.</p>
                 </div>
             </div>
-
             <div class="grid grid-rows-2 gap-8">
-                <!-- Bild 2: WIG Schweißen (Detail) -->
                 <div class="glass-card group cursor-pointer relative h-full">
                     <div class="image-container absolute inset-0">
-                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1974&auto=format&fit=crop" alt="Professionelles Schweißen Detail">
+                        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop" alt="Schweißen">
                     </div>
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                     <div class="relative z-10 flex h-full items-end p-10">
@@ -217,11 +213,9 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Bild 3: Metall Konstruktion (Industriell) -->
                 <div class="glass-card group cursor-pointer relative h-full">
                     <div class="image-container absolute inset-0">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Metallträger und Stahlkonstruktion">
+                        <img src="https://images.unsplash.com/photo-1530124560676-4fbc91848b9b?q=80&w=2070&auto=format&fit=crop" alt="Metall Konstruktion">
                     </div>
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                     <div class="relative z-10 flex h-full items-end p-10">
@@ -284,7 +278,7 @@
             </div>
         </section>
 
-        <!-- Über uns Section mit authentischem Werkstattbild -->
+        <!-- Über uns Section mit Eugen Weber Stockfoto -->
         <section id="ueber" class="glass-card p-12 md:p-24 mb-56 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none"></div>
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -307,8 +301,7 @@
                 </div>
                 <div class="h-[500px] glass-card relative overflow-hidden group">
                     <div class="image-container absolute inset-0">
-                        <!-- Werkstatt/Werkzeuge Detail -->
-                        <img src="https://images.unsplash.com/photo-1530124560676-4fbc91848b9b?q=80&w=2070&auto=format&fit=crop" alt="Professionelles Metall-Werkzeug in der Werkstatt">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Werkstatt Impressionen">
                     </div>
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                     <div class="text-center relative z-10 h-full flex flex-col items-center justify-center p-10">
@@ -366,7 +359,7 @@
         </div>
     </footer>
 
-    <!-- Modal -->
+    <!-- Interactive Modal -->
     <div id="infoModal" class="modal">
         <div class="glass-card p-12 max-w-xl w-full relative">
             <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors">
@@ -379,7 +372,7 @@
                     <input type="text" placeholder="Telefon" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
                 </div>
                 <input type="email" placeholder="E-Mail Adresse" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
-                <textarea placeholder="Beschreiben Sie kurz Ihr Vorhaben..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-40 outline-none focus:border-orange-500 transition-all text-sm resize-none"></textarea>
+                <textarea placeholder="Beschreiben Sie kurz Ihr Vorhaben (z.B. Geländer, Schweißarbeit, Designmöbel)..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-40 outline-none focus:border-orange-500 transition-all text-sm resize-none"></textarea>
                 <button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-orange-500/20 uppercase tracking-widest text-xs">Anfrage Absenden</button>
             </div>
         </div>
@@ -405,31 +398,32 @@
                 <div class="text-center py-16 animate-pulse">
                     <div class="text-7xl mb-6">⚒️</div>
                     <h3 class="text-2xl font-black mb-3 italic tracking-tight">ANFRAGE ERHALTEN!</h3>
-                    <p class="text-gray-400 font-light">Eugen Weber wird sich schnellstmöglich melden.</p>
+                    <p class="text-gray-400 font-light">Eugen Weber wird sich schnellstmöglich bei Ihnen melden.</p>
                 </div>
             `;
             setTimeout(closeModal, 3500);
         }
 
+        // Parallax Effect
         document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 40;
-            const y = (e.clientY / window.innerHeight - 0.5) * 40;
+            const x = (e.clientX / window.innerWidth - 0.5) * 50;
+            const y = (e.clientY / window.innerHeight - 0.5) * 50;
             const b1 = document.getElementById('blob1');
             const b2 = document.getElementById('blob2');
             if(b1) b1.style.transform = `translate(${x}px, ${y}px)`;
             if(b2) b2.style.transform = `translate(${-x}px, ${-y}px)`;
         });
 
+        // Scroll Spy
         window.addEventListener('scroll', () => {
             const sections = ['home', 'leistungen', 'ueber', 'kontakt'];
             let current = '';
             sections.forEach(id => {
                 const sec = document.getElementById(id);
-                if (sec && sec.getBoundingClientRect().top <= 250) current = id;
+                if (sec && sec.getBoundingClientRect().top <= 200) current = id;
             });
             document.querySelectorAll('.nav-item').forEach(item => {
-                const clickAttr = item.getAttribute('onclick');
-                item.classList.toggle('active', clickAttr && clickAttr.includes(current));
+                item.classList.toggle('active', item.getAttribute('onclick').includes(current));
             });
         });
     </script>
