@@ -1,862 +1,437 @@
 <!DOCTYPE html>
-
 <html lang="de">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>EW Metalvision | Meisterhafte Metallbearbeitung</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-
-
-<style>
-
-:root {
-
---ios-blur: blur(45px);
-
---ios-bg: rgba(255, 255, 255, 0.03);
-
---ios-border: rgba(255, 255, 255, 0.12);
-
---accent: #F97316;
-
---accent-glow: rgba(249, 115, 22, 0.4);
-
---dark-bg: #0a0a0c;
-
-}
-
-
-
-body {
-
-font-family: 'Plus Jakarta Sans', sans-serif;
-
-background: radial-gradient(circle at top right, #1a1a1e, #0a0a0c, #0d0d0f);
-
-color: #ffffff;
-
-overflow-x: hidden;
-
-scroll-behavior: smooth;
-
--webkit-font-smoothing: antialiased;
-
-}
-
-
-
-/* Glassmorphism Framework */
-
-.glass-card {
-
-background: var(--ios-bg);
-
-backdrop-filter: var(--ios-blur);
-
--webkit-backdrop-filter: var(--ios-blur);
-
-border: 1px solid var(--ios-border);
-
-border-radius: 40px;
-
-transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-
-overflow: hidden;
-
-}
-
-
-
-.glass-card:hover {
-
-border-color: rgba(249, 115, 22, 0.4);
-
-transform: translateY(-10px);
-
-box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-
-}
-
-
-
-/* Floating Nav */
-
-.ios-nav {
-
-position: fixed;
-
-bottom: 30px;
-
-left: 50%;
-
-transform: translateX(-50%);
-
-background: rgba(20, 20, 25, 0.85);
-
-backdrop-filter: blur(30px);
-
-border: 1px solid var(--ios-border);
-
-border-radius: 35px;
-
-padding: 6px;
-
-z-index: 1000;
-
-display: flex;
-
-gap: 4px;
-
-box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-
-}
-
-
-
-.nav-item {
-
-color: rgba(255,255,255,0.4);
-
-font-weight: 600;
-
-font-size: 0.8rem;
-
-padding: 12px 22px;
-
-border-radius: 30px;
-
-transition: all 0.4s ease;
-
-text-decoration: none;
-
-cursor: pointer;
-
-}
-
-
-
-.nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
-
-.nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); }
-
-
-
-/* Typography */
-
-.reveal-text {
-
-background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.25));
-
--webkit-background-clip: text;
-
--webkit-text-fill-color: transparent;
-
-}
-
-
-
-.bg-blob {
-
-position: absolute;
-
-width: 700px;
-
-height: 700px;
-
-background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-
-filter: blur(140px);
-
-z-index: -1;
-
-opacity: 0.18;
-
-pointer-events: none;
-
-}
-
-
-
-.image-container {
-
-position: relative;
-
-width: 100%;
-
-height: 100%;
-
-overflow: hidden;
-
-}
-
-
-
-.image-container img {
-
-width: 100%;
-
-height: 100%;
-
-object-fit: cover;
-
-transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-
-}
-
-
-
-.glass-card:hover img {
-
-transform: scale(1.1);
-
-}
-
-
-
-.status-pill {
-
-background: rgba(249, 115, 22, 0.1);
-
-border: 1px solid rgba(249, 115, 22, 0.2);
-
-color: var(--accent);
-
-padding: 8px 18px;
-
-border-radius: 20px;
-
-font-size: 0.75rem;
-
-font-weight: 700;
-
-text-transform: uppercase;
-
-letter-spacing: 2px;
-
-}
-
-
-
-.modal {
-
-display: none;
-
-position: fixed;
-
-inset: 0;
-
-background: rgba(0,0,0,0.92);
-
-backdrop-filter: blur(20px);
-
-z-index: 2000;
-
-align-items: center;
-
-justify-content: center;
-
-padding: 20px;
-
-opacity: 0;
-
-transition: opacity 0.4s ease;
-
-}
-
-.modal.active { display: flex; opacity: 1; }
-
-
-
-.metal-accent { color: var(--accent); }
-
-
-
-/* Custom Scrollbar */
-
-::-webkit-scrollbar { width: 6px; }
-
-::-webkit-scrollbar-track { background: #0a0a0c; }
-
-::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EW Metalvision | Meisterhafte Metallbearbeitung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ios-blur: blur(45px);
+            --ios-bg: rgba(255, 255, 255, 0.03);
+            --ios-border: rgba(255, 255, 255, 0.12);
+            --accent: #F97316; 
+            --accent-glow: rgba(249, 115, 22, 0.4);
+            --dark-bg: #0a0a0c;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top right, #1a1a1e, #0a0a0c, #0d0d0f);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism Framework */
+        .glass-card {
+            background: var(--ios-bg);
+            backdrop-filter: var(--ios-blur);
+            -webkit-backdrop-filter: var(--ios-blur);
+            border: 1px solid var(--ios-border);
+            border-radius: 40px; 
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(249, 115, 22, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Floating Nav */
+        .ios-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(20, 20, 25, 0.85);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--ios-border);
+            border-radius: 35px;
+            padding: 6px;
+            z-index: 1000;
+            display: flex;
+            gap: 4px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+        }
+
+        .nav-item {
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 12px 22px;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); }
+
+        /* Typography */
+        .reveal-text {
+            background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.25));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-blob {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #111; /* Fallback Hintergrund */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .status-pill {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            color: var(--accent);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .modal.active { display: flex; opacity: 1; }
+
+        .metal-accent { color: var(--accent); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    </style>
 </head>
-
 <body>
 
-
-
-<div id="blob1" class="bg-blob" style="top: -150px; left: -150px;"></div>
-
-<div id="blob2" class="bg-blob" style="bottom: -150px; right: -150px;"></div>
-
-
-
-<!-- Navigation Header -->
-
-<header class="fixed w-full top-0 z-50 px-8 md:px-16 py-8 flex justify-between items-center bg-transparent backdrop-blur-sm">
-
-<div class="flex items-center gap-4">
-
-<div class="w-12 h-12 glass-card flex items-center justify-center border-orange-500/50 shadow-lg shadow-orange-500/10">
-
-<span class="text-orange-500 font-black text-xl italic">EW</span>
-
-</div>
-
-<div class="text-xl font-bold tracking-tighter">METAL<span class="font-light opacity-50">VISION</span></div>
-
-</div>
-
-<div class="hidden md:flex gap-12 items-center">
-
-<span class="text-[10px] uppercase tracking-[0.5em] opacity-40 font-bold">Inhaber: Eugen Weber</span>
-
-<button onclick="openModal('Anfrage')" class="glass-card px-8 py-3.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">Direkt-Anfrage</button>
-
-</div>
-
-</header>
-
-
-
-<main class="max-w-7xl mx-auto px-6">
-
-
-<!-- Hero Section -->
-
-<section id="home" class="pt-56 pb-48 text-center relative">
-
-<div class="inline-block status-pill mb-10 shadow-2xl shadow-orange-500/20">
-
-<span class="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
-
-Zertifizierter Schweißfachbetrieb
-
-</div>
-
-<h1 class="text-6xl md:text-9xl font-black reveal-text leading-[0.95] mb-10 tracking-tighter">
-
-METALL IN <br> <span class="metal-accent">PERFEKTION.</span>
-
-</h1>
-
-<p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-
-EW Metalvision steht für handwerkliche Präzision bei Schweißkonstruktionen, Metallbau und exklusivem Design. Wir formen Stahl mit Vision.
-
-</p>
-
-<div class="flex flex-col sm:flex-row gap-6 justify-center">
-
-<button onclick="scrollToSection('leistungen')" class="bg-white text-black px-12 py-6 rounded-full font-extrabold hover:bg-orange-500 transition-all shadow-xl shadow-white/5">Portfolio entdecken</button>
-
-<button onclick="scrollToSection('ueber')" class="glass-card px-12 py-6 rounded-full font-extrabold hover:bg-white/5 transition-all">Über Eugen Weber</button>
-
-</div>
-
-</section>
-
-
-
-<!-- Gallery / Impressionen mit Stockfotos -->
-
-<section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
-
-<div class="glass-card h-[600px] group cursor-pointer relative">
-
-<div class="image-container absolute inset-0">
-
-<img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" alt="Metallbearbeitung Funkenflug">
-
-</div>
-
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-<div class="absolute bottom-10 left-10 z-10">
-
-<span class="text-orange-500 font-mono text-xs tracking-widest mb-2 block">HANDWERK</span>
-
-<h4 class="text-3xl font-black uppercase tracking-tighter italic">Echte Präzision</h4>
-
-<p class="text-gray-400 text-sm mt-2 max-w-xs">Live-Eindrücke unserer täglichen Arbeit mit Stahl und Feuer.</p>
-
-</div>
-
-</div>
-
-<div class="grid grid-rows-2 gap-8">
-
-<div class="glass-card group cursor-pointer relative h-full">
-
-<div class="image-container absolute inset-0">
-
-<img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop" alt="Schweißen">
-
-</div>
-
-<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-
-<div class="relative z-10 flex h-full items-end p-10">
-
-<div>
-
-<h4 class="font-bold uppercase tracking-widest text-lg">WIG Schweißen</h4>
-
-<p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Edelstahl-Spezialisierung</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="glass-card group cursor-pointer relative h-full">
-
-<div class="image-container absolute inset-0">
-
-<img src="https://images.unsplash.com/photo-1530124560676-4fbc91848b9b?q=80&w=2070&auto=format&fit=crop" alt="Metall Konstruktion">
-
-</div>
-
-<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-
-<div class="relative z-10 flex h-full items-end p-10">
-
-<div>
-
-<h4 class="font-bold uppercase tracking-widest text-lg">Custom Planung</h4>
-
-<p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Vom Entwurf zum Bauteil</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- Leistungen Grid -->
-
-<section id="leistungen" class="mb-56">
-
-<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-
-<div>
-
-<span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-4">EXPERTISE</span>
-
-<h2 class="text-5xl font-black tracking-tighter">UNSERE LEISTUNGEN.</h2>
-
-</div>
-
-<div class="h-[1px] flex-grow bg-white/10 mx-10 hidden md:block mb-4"></div>
-
-<span class="text-gray-600 font-mono text-2xl">01</span>
-
-</div>
-
-
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-<!-- Schweißtechnik -->
-
-<div class="glass-card p-12 group">
-
-<div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">🔥</div>
-
-<h3 class="text-2xl font-bold mb-6 italic">Schweißtechnik</h3>
-
-<p class="text-gray-400 text-sm leading-relaxed mb-10">Zertifizierte Verfahren für Industrie und Gewerbe. Wir garantieren Schweißnähte, die höchsten Belastungen standhalten.</p>
-
-<ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> WIG / MAG / Elektroden</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Edelstahl-Spezialisierung</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Aluminiumverarbeitung</li>
-
-</ul>
-
-</div>
-
-
-
-<!-- Metallbau -->
-
-<div class="glass-card p-12 group">
-
-<div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">🏗️</div>
-
-<h3 class="text-2xl font-bold mb-6 italic">Metallbau</h3>
-
-<p class="text-gray-400 text-sm leading-relaxed mb-10">Maßgeschneiderte Lösungen für Haus und Garten. Von modernen Geländern bis zu komplexen Treppenanlagen.</p>
-
-<ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Treppen & Geländer</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Toranlagen & Zäune</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Balkonkonstruktionen</li>
-
-</ul>
-
-</div>
-
-
-
-<!-- Design -->
-
-<div class="glass-card p-12 group">
-
-<div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">✨</div>
-
-<h3 class="text-2xl font-bold mb-6 italic">Metal Design</h3>
-
-<p class="text-gray-400 text-sm leading-relaxed mb-10">Unikate für Ihr Interior. Wir fertigen Möbel und Design-Objekte, die rohes Metall in Kunst verwandeln.</p>
-
-<ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Loft-Style Möbel</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Sichtschutz-Elemente</li>
-
-<li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Industrial Design</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- Über uns Section mit Eugen Weber Stockfoto -->
-
-<section id="ueber" class="glass-card p-12 md:p-24 mb-56 relative overflow-hidden">
-
-<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none"></div>
-
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-<div>
-
-<span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-6">UNSERE PHILOSOPHIE</span>
-
-<h2 class="text-5xl md:text-6xl font-black mb-10 leading-tight tracking-tighter">MEISTERHAND <br> <span class="metal-accent">AUS BALINGEN.</span></h2>
-
-<p class="text-gray-400 text-xl mb-12 leading-relaxed font-light">
-
-Inhaber Eugen Weber bündelt Leidenschaft für das Material mit höchster technischer Kompetenz. EW Metalvision ist kein Massenbetrieb – wir nehmen uns Zeit für die Details, die den Unterschied machen.
-
-</p>
-
-<div class="grid grid-cols-2 gap-10">
-
-<div>
-
-<div class="text-4xl font-black text-white mb-2 italic">100%</div>
-
-<div class="text-[10px] uppercase tracking-[0.3em] text-orange-500 font-bold">Maßarbeit</div>
-
-</div>
-
-<div>
-
-<div class="text-4xl font-black text-white mb-2 italic">TOP</div>
-
-<div class="text-[10px] uppercase tracking-[0.3em] text-orange-500 font-bold">Qualität</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="h-[500px] glass-card relative overflow-hidden group">
-
-<div class="image-container absolute inset-0">
-
-<img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Werkstatt Impressionen">
-
-</div>
-
-<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-
-<div class="text-center relative z-10 h-full flex flex-col items-center justify-center p-10">
-
-<span class="block text-6xl mb-6 drop-shadow-2xl">🔧</span>
-
-<p class="text-sm uppercase tracking-[0.5em] font-bold text-white mb-4">Werkstatt-Impressionen</p>
-
-<p class="text-xs text-gray-200 max-w-xs leading-loose font-medium">Roher Stahl wird durch Hitze und Präzision zur Vision.</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-</main>
-
-
-
-<!-- Navigation -->
-
-<nav class="ios-nav">
-
-<div class="nav-item active" onclick="scrollToSection('home')">Home</div>
-
-<div class="nav-item" onclick="scrollToSection('leistungen')">Portfolio</div>
-
-<div class="nav-item" onclick="scrollToSection('ueber')">Meister</div>
-
-<div class="nav-item" onclick="scrollToSection('kontakt')">Kontakt</div>
-
-</nav>
-
-
-
-<!-- Footer -->
-
-<footer id="kontakt" class="px-6 pb-40">
-
-<div class="glass-card max-w-7xl mx-auto p-16 md:p-24 relative overflow-hidden">
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 relative z-10">
-
-<div class="lg:col-span-2">
-
-<div class="text-3xl font-black mb-8 italic tracking-tighter">EW METAL<span class="text-orange-500">VISION</span></div>
-
-<p class="text-gray-500 mb-10 max-w-sm leading-relaxed">Innovative Metallbearbeitung & Schweißtechnik. Wir freuen uns auf Ihr Projekt.</p>
-
-<div class="flex gap-4">
-
-<button class="w-12 h-12 glass-card flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">FB</button>
-
-<button class="w-12 h-12 glass-card flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">IG</button>
-
-</div>
-
-</div>
-
-<div>
-
-<h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Standort</h4>
-
-<address class="not-italic text-gray-400 text-sm space-y-4 leading-relaxed">
-
-Eugen Weber<br>
-
-Schmiedestraße 12<br>
-
-72336 Balingen<br>
-
-Deutschland
-
-</address>
-
-</div>
-
-<div>
-
-<h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Direkt</h4>
-
-<div class="text-gray-400 text-sm space-y-4">
-
-<p class="text-white font-black text-lg">+49 (0) 152 045 152 50</p>
-
-<p class="hover:text-orange-500 cursor-pointer underline underline-offset-8 transition-colors" onclick="openModal('Mail')">info@ew-metalvision.de</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-
-<p class="text-[9px] uppercase tracking-[0.6em] text-gray-600 font-bold">© 2026 EW Metalvision | Eugen Weber</p>
-
-<p class="text-[9px] uppercase tracking-[0.6em] text-gray-400 font-black">Design by Philipp Dachtler</p>
-
-</div>
-
-</div>
-
-</footer>
-
-
-
-<!-- Interactive Modal -->
-
-<div id="infoModal" class="modal">
-
-<div class="glass-card p-12 max-w-xl w-full relative">
-
-<button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors">
-
-<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-
-</button>
-
-<h2 id="modalTitle" class="text-3xl font-black mb-8 italic tracking-tighter text-orange-500">PROJEKTANFRAGE</h2>
-
-<div id="modalContent" class="space-y-6">
-
-<div class="grid grid-cols-2 gap-4">
-
-<input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
-
-<input type="text" placeholder="Telefon" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
-
-</div>
-
-<input type="email" placeholder="E-Mail Adresse" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
-
-<textarea placeholder="Beschreiben Sie kurz Ihr Vorhaben (z.B. Geländer, Schweißarbeit, Designmöbel)..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-40 outline-none focus:border-orange-500 transition-all text-sm resize-none"></textarea>
-
-<button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-orange-500/20 uppercase tracking-widest text-xs">Anfrage Absenden</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<script>
-
-function scrollToSection(id) {
-
-const el = document.getElementById(id);
-
-if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
-
-}
-
-
-
-function openModal(title) {
-
-document.getElementById('infoModal').classList.add('active');
-
-}
-
-
-
-function closeModal() {
-
-document.getElementById('infoModal').classList.remove('active');
-
-}
-
-
-
-function showSuccess() {
-
-const content = document.getElementById('modalContent');
-
-content.innerHTML = `
-
-<div class="text-center py-16 animate-pulse">
-
-<div class="text-7xl mb-6">⚒️</div>
-
-<h3 class="text-2xl font-black mb-3 italic tracking-tight">ANFRAGE ERHALTEN!</h3>
-
-<p class="text-gray-400 font-light">Eugen Weber wird sich schnellstmöglich bei Ihnen melden.</p>
-
-</div>
-
-`;
-
-setTimeout(closeModal, 3500);
-
-}
-
-
-
-// Parallax Effect
-
-document.addEventListener('mousemove', (e) => {
-
-const x = (e.clientX / window.innerWidth - 0.5) * 50;
-
-const y = (e.clientY / window.innerHeight - 0.5) * 50;
-
-const b1 = document.getElementById('blob1');
-
-const b2 = document.getElementById('blob2');
-
-if(b1) b1.style.transform = `translate(${x}px, ${y}px)`;
-
-if(b2) b2.style.transform = `translate(${-x}px, ${-y}px)`;
-
-});
-
-
-
-// Scroll Spy
-
-window.addEventListener('scroll', () => {
-
-const sections = ['home', 'leistungen', 'ueber', 'kontakt'];
-
-let current = '';
-
-sections.forEach(id => {
-
-const sec = document.getElementById(id);
-
-if (sec && sec.getBoundingClientRect().top <= 200) current = id;
-
-});
-
-document.querySelectorAll('.nav-item').forEach(item => {
-
-item.classList.toggle('active', item.getAttribute('onclick').includes(current));
-
-});
-
-});
-
-</script>
-
+    <div id="blob1" class="bg-blob" style="top: -150px; left: -150px;"></div>
+    <div id="blob2" class="bg-blob" style="bottom: -150px; right: -150px;"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 z-50 px-8 md:px-16 py-8 flex justify-between items-center bg-transparent backdrop-blur-sm">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 glass-card flex items-center justify-center border-orange-500/50 shadow-lg shadow-orange-500/10">
+                <span class="text-orange-500 font-black text-xl italic">EW</span>
+            </div>
+            <div class="text-xl font-bold tracking-tighter">METAL<span class="font-light opacity-50">VISION</span></div>
+        </div>
+        <div class="hidden md:flex gap-12 items-center">
+            <span class="text-[10px] uppercase tracking-[0.5em] opacity-40 font-bold">Inhaber: Eugen Weber</span>
+            <button onclick="openModal('Anfrage')" class="glass-card px-8 py-3.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">Direkt-Anfrage</button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <section id="home" class="pt-56 pb-48 text-center relative">
+            <div class="inline-block status-pill mb-10 shadow-2xl shadow-orange-500/20">
+                <span class="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
+                Zertifizierter Schweißfachbetrieb
+            </div>
+            <h1 class="text-6xl md:text-9xl font-black reveal-text leading-[0.95] mb-10 tracking-tighter">
+                METALL IN <br> <span class="metal-accent">PERFEKTION.</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
+                EW Metalvision steht für handwerkliche Präzision bei Schweißkonstruktionen, Metallbau und exklusivem Design. Wir formen Stahl mit Vision.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button onclick="scrollToSection('leistungen')" class="bg-white text-black px-12 py-6 rounded-full font-extrabold hover:bg-orange-500 transition-all shadow-xl shadow-white/5">Portfolio entdecken</button>
+                <button onclick="scrollToSection('ueber')" class="glass-card px-12 py-6 rounded-full font-extrabold hover:bg-white/5 transition-all">Über Eugen Weber</button>
+            </div>
+        </section>
+
+        <!-- Galerie mit Flexx-Arbeiten und Metallbearbeitung -->
+        <section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Bild 1: Haupt-Impression (Flexx/Winkelschleifer mit Funkenflug) -->
+            <div class="glass-card h-[600px] group cursor-pointer relative">
+                <div class="image-container absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?q=80&w=2070&auto=format&fit=crop" alt="Schleifarbeiten mit Winkelschleifer und Funkenflug">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 z-10">
+                    <span class="text-orange-500 font-mono text-xs tracking-widest mb-2 block">HANDWERK</span>
+                    <h4 class="text-3xl font-black uppercase tracking-tighter italic">Echte Präzision</h4>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Feinschliff und Flexx-Arbeiten für makellose Oberflächen.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-rows-2 gap-8">
+                <!-- Bild 2: WIG Schweißen (Detail) -->
+                <div class="glass-card group cursor-pointer relative h-full">
+                    <div class="image-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1974&auto=format&fit=crop" alt="Professionelles Schweißen Detail">
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                    <div class="relative z-10 flex h-full items-end p-10">
+                        <div>
+                            <h4 class="font-bold uppercase tracking-widest text-lg">WIG Schweißen</h4>
+                            <p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Edelstahl-Spezialisierung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bild 3: Metall Konstruktion (Industriell) -->
+                <div class="glass-card group cursor-pointer relative h-full">
+                    <div class="image-container absolute inset-0">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Metallträger und Stahlkonstruktion">
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                    <div class="relative z-10 flex h-full items-end p-10">
+                        <div>
+                            <h4 class="font-bold uppercase tracking-widest text-lg">Custom Planung</h4>
+                            <p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Vom Entwurf zum Bauteil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leistungen Grid -->
+        <section id="leistungen" class="mb-56">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-4">EXPERTISE</span>
+                    <h2 class="text-5xl font-black tracking-tighter">UNSERE LEISTUNGEN.</h2>
+                </div>
+                <div class="h-[1px] flex-grow bg-white/10 mx-10 hidden md:block mb-4"></div>
+                <span class="text-gray-600 font-mono text-2xl">01</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Schweißtechnik -->
+                <div class="glass-card p-12 group">
+                    <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">🔥</div>
+                    <h3 class="text-2xl font-bold mb-6 italic">Schweißtechnik</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-10">Zertifizierte Verfahren für Industrie und Gewerbe. Wir garantieren Schweißnähte, die höchsten Belastungen standhalten.</p>
+                    <ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> WIG / MAG / Elektroden</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Edelstahl-Spezialisierung</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Aluminiumverarbeitung</li>
+                    </ul>
+                </div>
+
+                <!-- Metallbau -->
+                <div class="glass-card p-12 group">
+                    <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">🏗️</div>
+                    <h3 class="text-2xl font-bold mb-6 italic">Metallbau</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-10">Maßgeschneiderte Lösungen für Haus und Garten. Von modernen Geländern bis zu komplexen Treppenanlagen.</p>
+                    <ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Treppen & Geländer</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Toranlagen & Zäune</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Balkonkonstruktionen</li>
+                    </ul>
+                </div>
+
+                <!-- Design -->
+                <div class="glass-card p-12 group">
+                    <div class="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-10 text-4xl group-hover:bg-orange-500 group-hover:text-black transition-all duration-500">✨</div>
+                    <h3 class="text-2xl font-bold mb-6 italic">Metal Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-10">Unikate für Ihr Interior. Wir fertigen Möbel und Design-Objekte, die rohes Metall in Kunst verwandeln.</p>
+                    <ul class="text-[11px] uppercase tracking-[0.2em] text-orange-500 font-bold space-y-3">
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Loft-Style Möbel</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Sichtschutz-Elemente</li>
+                        <li class="flex items-center gap-3"><span class="w-1 h-1 bg-orange-500 rounded-full"></span> Industrial Design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über uns Section mit authentischem Werkstattbild -->
+        <section id="ueber" class="glass-card p-12 md:p-24 mb-56 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none"></div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-6">UNSERE PHILOSOPHIE</span>
+                    <h2 class="text-5xl md:text-6xl font-black mb-10 leading-tight tracking-tighter">MEISTERHAND <br> <span class="metal-accent">AUS BALINGEN.</span></h2>
+                    <p class="text-gray-400 text-xl mb-12 leading-relaxed font-light">
+                        Inhaber Eugen Weber bündelt Leidenschaft für das Material mit höchster technischer Kompetenz. EW Metalvision ist kein Massenbetrieb – wir nehmen uns Zeit für die Details, die den Unterschied machen.
+                    </p>
+                    <div class="grid grid-cols-2 gap-10">
+                        <div>
+                            <div class="text-4xl font-black text-white mb-2 italic">100%</div>
+                            <div class="text-[10px] uppercase tracking-[0.3em] text-orange-500 font-bold">Maßarbeit</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black text-white mb-2 italic">TOP</div>
+                            <div class="text-[10px] uppercase tracking-[0.3em] text-orange-500 font-bold">Qualität</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[500px] glass-card relative overflow-hidden group">
+                    <div class="image-container absolute inset-0">
+                        <!-- Werkstatt/Werkzeuge Detail -->
+                        <img src="https://images.unsplash.com/photo-1530124560676-4fbc91848b9b?q=80&w=2070&auto=format&fit=crop" alt="Professionelles Metall-Werkzeug in der Werkstatt">
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
+                    <div class="text-center relative z-10 h-full flex flex-col items-center justify-center p-10">
+                        <span class="block text-6xl mb-6 drop-shadow-2xl">🔧</span>
+                        <p class="text-sm uppercase tracking-[0.5em] font-bold text-white mb-4">Werkstatt-Impressionen</p>
+                        <p class="text-xs text-gray-200 max-w-xs leading-loose font-medium">Roher Stahl wird durch Hitze und Präzision zur Vision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navigation -->
+    <nav class="ios-nav">
+        <div class="nav-item active" onclick="scrollToSection('home')">Home</div>
+        <div class="nav-item" onclick="scrollToSection('leistungen')">Portfolio</div>
+        <div class="nav-item" onclick="scrollToSection('ueber')">Meister</div>
+        <div class="nav-item" onclick="scrollToSection('kontakt')">Kontakt</div>
+    </nav>
+
+    <!-- Footer -->
+    <footer id="kontakt" class="px-6 pb-40">
+        <div class="glass-card max-w-7xl mx-auto p-16 md:p-24 relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 relative z-10">
+                <div class="lg:col-span-2">
+                    <div class="text-3xl font-black mb-8 italic tracking-tighter">EW METAL<span class="text-orange-500">VISION</span></div>
+                    <p class="text-gray-500 mb-10 max-w-sm leading-relaxed">Innovative Metallbearbeitung & Schweißtechnik. Wir freuen uns auf Ihr Projekt.</p>
+                    <div class="flex gap-4">
+                        <button class="w-12 h-12 glass-card flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">FB</button>
+                        <button class="w-12 h-12 glass-card flex items-center justify-center hover:bg-orange-500 hover:text-black transition-all">IG</button>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Standort</h4>
+                    <address class="not-italic text-gray-400 text-sm space-y-4 leading-relaxed">
+                        Eugen Weber<br>
+                        Schmiedestraße 12<br>
+                        72336 Balingen<br>
+                        Deutschland
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Direkt</h4>
+                    <div class="text-gray-400 text-sm space-y-4">
+                        <p class="text-white font-black text-lg">+49 (0) 152 045 152 50</p>
+                        <p class="hover:text-orange-500 cursor-pointer underline underline-offset-8 transition-colors" onclick="openModal('Mail')">info@ew-metalvision.de</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="text-[9px] uppercase tracking-[0.6em] text-gray-600 font-bold">© 2026 EW Metalvision | Eugen Weber</p>
+                <p class="text-[9px] uppercase tracking-[0.6em] text-gray-400 font-black">Design by Philipp Dachtler</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="glass-card p-12 max-w-xl w-full relative">
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 hover:text-white transition-colors">
+                <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 id="modalTitle" class="text-3xl font-black mb-8 italic tracking-tighter text-orange-500">PROJEKTANFRAGE</h2>
+            <div id="modalContent" class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
+                    <input type="text" placeholder="Telefon" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
+                </div>
+                <input type="email" placeholder="E-Mail Adresse" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all text-sm">
+                <textarea placeholder="Beschreiben Sie kurz Ihr Vorhaben..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-40 outline-none focus:border-orange-500 transition-all text-sm resize-none"></textarea>
+                <button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-orange-500/20 uppercase tracking-widest text-xs">Anfrage Absenden</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function openModal(title) {
+            document.getElementById('infoModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').classList.remove('active');
+        }
+
+        function showSuccess() {
+            const content = document.getElementById('modalContent');
+            content.innerHTML = `
+                <div class="text-center py-16 animate-pulse">
+                    <div class="text-7xl mb-6">⚒️</div>
+                    <h3 class="text-2xl font-black mb-3 italic tracking-tight">ANFRAGE ERHALTEN!</h3>
+                    <p class="text-gray-400 font-light">Eugen Weber wird sich schnellstmöglich melden.</p>
+                </div>
+            `;
+            setTimeout(closeModal, 3500);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 40;
+            const y = (e.clientY / window.innerHeight - 0.5) * 40;
+            const b1 = document.getElementById('blob1');
+            const b2 = document.getElementById('blob2');
+            if(b1) b1.style.transform = `translate(${x}px, ${y}px)`;
+            if(b2) b2.style.transform = `translate(${-x}px, ${-y}px)`;
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = ['home', 'leistungen', 'ueber', 'kontakt'];
+            let current = '';
+            sections.forEach(id => {
+                const sec = document.getElementById(id);
+                if (sec && sec.getBoundingClientRect().top <= 250) current = id;
+            });
+            document.querySelectorAll('.nav-item').forEach(item => {
+                const clickAttr = item.getAttribute('onclick');
+                item.classList.toggle('active', clickAttr && clickAttr.includes(current));
+            });
+        });
+    </script>
 </body>
-
 </html>
-
-
-
