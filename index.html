@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E & W Metalvision GmbH | Meisterhafte Metallbearbeitung</title>
+    <!-- Favicon / Tab Image -->
+    <link rel="icon" type="image/png" href="https://chatgpt.com/backend-api/estuary/content?id=file_0000000050e07206aa6534f8d0fbfd94&ts=492903&p=fs&cid=1&sig=0c41c3ef74e303003f0408041cdca0ca27b7d320bb08912b74f1141e14fae567&v=0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,7 +237,6 @@
                 <button onclick="openModal()" class="hidden sm:block glass-card px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">
                     Direkt-Anfrage
                 </button>
-                <!-- Mobile Menu Placeholder / Icon could go here -->
             </div>
         </div>
     </header>
@@ -500,7 +501,6 @@
 
             navItems.forEach(item => {
                 item.classList.remove('active');
-                // Check if the link text or ID matches the current section
                 const onclickAttr = item.getAttribute('onclick');
                 if (onclickAttr && onclickAttr.includes(current)) {
                     item.classList.add('active');
