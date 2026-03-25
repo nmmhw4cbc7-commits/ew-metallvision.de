@@ -47,32 +47,35 @@
 
         .glass-card:hover {
             border-color: rgba(249, 115, 22, 0.4);
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
         }
 
+        /* Centered Nav Styling */
         .ios-nav {
-            background: rgba(20, 20, 25, 0.85);
+            background: rgba(20, 20, 25, 0.7);
             border: 1px solid var(--ios-border);
             border-radius: 35px;
-            padding: 6px;
+            padding: 4px;
             display: flex;
-            gap: 4px;
+            gap: 2px;
+            backdrop-filter: blur(10px);
         }
 
         .nav-item {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             font-weight: 600;
-            font-size: 0.8rem;
-            padding: 12px 22px;
+            font-size: 0.75rem;
+            padding: 10px 20px;
             border-radius: 30px;
             transition: all 0.4s ease;
             text-decoration: none;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); }
+        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 15px var(--accent-glow); }
 
         .reveal-text {
             background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.25));
@@ -106,7 +109,7 @@
         }
 
         .glass-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .status-pill {
@@ -157,11 +160,10 @@
             letter-spacing: 1px;
         }
 
-        /* Veredeltes Designer-Logo Styling */
         .logo-container {
             position: relative;
-            width: 52px;
-            height: 52px;
+            width: 44px;
+            height: 44px;
             transition: all 0.5s ease;
         }
 
@@ -196,40 +198,45 @@
     <div id="blob1" class="bg-blob" style="top: -150px; left: -150px;"></div>
     <div id="blob2" class="bg-blob" style="bottom: -150px; right: -150px;"></div>
 
-    <header class="fixed w-full top-0 z-50 px-8 md:px-16 py-8 flex justify-between items-center bg-transparent backdrop-blur-md border-b border-white/5">
-        <div class="flex items-center gap-6 group cursor-pointer">
-            <!-- Designer Logo: Abstraktes E&W als Metall-Struktur -->
-            <div class="logo-container">
-                <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Hintergrund-Hexagon als technische Basis -->
-                    <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="currentColor" stroke-width="2" class="text-white/20"/>
-                    <!-- Das "E" (links) & "W" (rechts) abstrahiert als Trägerstruktur -->
-                    <path d="M35 30H55M35 50H50M35 70H55M35 30V70" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M55 30L65 70L75 50L85 70L95 30" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <!-- Schweiß-Punkt oben rechts -->
-                    <circle cx="85" cy="25" r="4" fill="var(--accent)" class="animate-pulse"/>
-                </svg>
-                <!-- Subtile Funken-Animationen bei Hover -->
-                <div class="logo-spark" style="--tw-x: 30px; --tw-y: -15px; top: 20%; left: 50%;"></div>
-                <div class="logo-spark" style="--tw-x: -25px; --tw-y: -30px; top: 40%; left: 40%; animation-delay: 0.2s;"></div>
-                <div class="logo-spark" style="--tw-x: 20px; --tw-y: 20px; top: 60%; left: 60%; animation-delay: 0.5s;"></div>
-            </div>
+    <!-- Header Update for Centered Nav -->
+    <header class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 bg-transparent backdrop-blur-md border-b border-white/5">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-3 items-center">
             
-            <div class="flex flex-col">
-                <div class="text-xl font-bold tracking-tighter uppercase leading-none">E & W METAL<span class="text-orange-500">VISION</span></div>
-                <div class="text-[9px] uppercase tracking-[0.4em] font-light opacity-40 mt-1">Meisterhafte Metallbearbeitung</div>
+            <!-- Logo Section (Left) -->
+            <div class="flex items-center gap-4 group cursor-pointer" onclick="scrollToSection('home')">
+                <div class="logo-container shrink-0">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="currentColor" stroke-width="2" class="text-white/20"/>
+                        <path d="M35 30H55M35 50H50M35 70H55M35 30V70" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M55 30L65 70L75 50L85 70L95 30" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="85" cy="25" r="4" fill="var(--accent)" class="animate-pulse"/>
+                    </svg>
+                    <div class="logo-spark" style="--tw-x: 30px; --tw-y: -15px; top: 20%; left: 50%;"></div>
+                    <div class="logo-spark" style="--tw-x: -25px; --tw-y: -30px; top: 40%; left: 40%; animation-delay: 0.2s;"></div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-lg font-bold tracking-tighter uppercase leading-none">E&W METAL<span class="text-orange-500">VISION</span></div>
+                    <div class="text-[8px] uppercase tracking-[0.3em] font-light opacity-40 mt-1">Meisterhandwerk</div>
+                </div>
             </div>
-        </div>
 
-        <nav class="ios-nav hidden lg:flex">
-            <div class="nav-item active" onclick="scrollToSection('home')">Home</div>
-            <div class="nav-item" onclick="scrollToSection('leistungen')">Portfolio</div>
-            <div class="nav-item" onclick="scrollToSection('ueber')">Über uns</div>
-            <div class="nav-item" onclick="scrollToSection('impressum')">Rechtliches</div>
-        </nav>
+            <!-- Navigation Section (Center) -->
+            <div class="hidden lg:flex justify-center">
+                <nav class="ios-nav">
+                    <div class="nav-item active" onclick="scrollToSection('home')">Home</div>
+                    <div class="nav-item" onclick="scrollToSection('leistungen')">Portfolio</div>
+                    <div class="nav-item" onclick="scrollToSection('ueber')">Über uns</div>
+                    <div class="nav-item" onclick="scrollToSection('impressum')">Rechtliches</div>
+                </nav>
+            </div>
 
-        <div class="hidden md:flex gap-12 items-center">
-            <button onclick="openModal('Anfrage')" class="glass-card px-8 py-3.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">Direkt-Anfrage</button>
+            <!-- Action Section (Right) -->
+            <div class="flex justify-end items-center gap-6">
+                <button onclick="openModal()" class="hidden sm:block glass-card px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">
+                    Direkt-Anfrage
+                </button>
+                <!-- Mobile Menu Placeholder / Icon could go here -->
+            </div>
         </div>
     </header>
 
@@ -256,7 +263,7 @@
         <section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="glass-card h-[600px] group cursor-pointer relative">
                 <div class="image-container absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1759310347467-578dfd846229?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Industriehalle Metall">
+                    <img src="https://images.unsplash.com/photo-1759310347467-578dfd846229?q=80&w=2071&auto=format&fit=crop" alt="Industriehalle Metall">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div class="absolute bottom-10 left-10 z-10">
@@ -268,7 +275,7 @@
             <div class="grid grid-rows-2 gap-8">
                 <div class="glass-card group cursor-pointer relative h-full">
                     <div class="image-container absolute inset-0">
-                        <img src="https://images.unsplash.com/photo-1701149135873-96cfb5f5b073?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feuertreppe Stahl">
+                        <img src="https://images.unsplash.com/photo-1701149135873-96cfb5f5b073?q=80&w=987&auto=format&fit=crop" alt="Feuertreppe Stahl">
                     </div>
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                     <div class="relative z-10 flex h-full items-end p-10">
@@ -281,7 +288,7 @@
                 <div class="grid grid-cols-2 gap-8">
                     <div class="glass-card group cursor-pointer relative h-full">
                         <div class="image-container absolute inset-0">
-                            <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Holzlagerschrank Metall">
+                            <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=2070&auto=format&fit=crop" alt="Holzlagerschrank Metall">
                         </div>
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                         <div class="relative z-10 flex h-full items-end p-6">
@@ -290,7 +297,7 @@
                     </div>
                     <div class="glass-card group cursor-pointer relative h-full">
                         <div class="image-container absolute inset-0">
-                            <img src="https://images.unsplash.com/photo-1763315156830-07870b159121?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bohrschlammrutsche">
+                            <img src="https://images.unsplash.com/photo-1763315156830-07870b159121?q=80&w=987&auto=format&fit=crop" alt="Bohrschlammrutsche">
                         </div>
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
                         <div class="relative z-10 flex h-full items-end p-6">
@@ -403,14 +410,6 @@
                             E-mail: info@ew-metalvision.de<br>
                             Telefon: +49 4408 9845368
                         </p>
-
-                        <h3>Verantwortlich gem. § 18 Abs. 2 MStV</h3>
-                        <p>
-                            Wilhelm Zerbin<br>
-                            Im Gewerbepark 4<br>
-                            27798 Hude<br>
-                            Deutschland
-                        </p>
                     </div>
 
                     <div class="legal-text">
@@ -422,9 +421,6 @@
 
                         <h3>Urheberrecht</h3>
                         <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung bedarf der schriftlichen Zustimmung.</p>
-                        
-                        <h3>Google Analytics</h3>
-                        <p class="text-[10px] italic mt-4 opacity-60">Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. Google Analytics verwendet „Cookies“, um eine Analyse der Benutzung der Website zu ermöglichen...</p>
                     </div>
                 </div>
             </div>
@@ -436,7 +432,7 @@
         <div class="glass-card max-w-7xl w-full p-16 md:p-24">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                 <div class="lg:col-span-2">
-                    <div class="text-3xl font-black mb-8 italic tracking-tighter uppercase">E & W METAL<span class="text-orange-500">VISION</span></div>
+                    <div class="text-3xl font-black mb-8 italic tracking-tighter uppercase">E&W METAL<span class="text-orange-500">VISION</span></div>
                     <p class="text-gray-500 mb-10 max-w-sm">Meisterhafte Metallbearbeitung aus Hude. Wir setzen Ihre Visionen in Stahl um.</p>
                 </div>
                 <div>
@@ -458,6 +454,7 @@
         </div>
     </footer>
 
+    <!-- Anfrage Modal -->
     <div id="infoModal" class="modal">
         <div class="glass-card p-12 max-w-xl w-full relative">
             <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 text-xl font-bold">&times;</button>
@@ -475,18 +472,10 @@
         function scrollToSection(id) {
             const el = document.getElementById(id);
             if (el) {
-                window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                    if(item.innerText.toLowerCase() === id.replace('ueber', 'über uns').toLowerCase() || 
-                       (id === 'home' && item.innerText.toLowerCase() === 'home') ||
-                       (id === 'leistungen' && item.innerText.toLowerCase() === 'portfolio') ||
-                       (id === 'impressum' && item.innerText.toLowerCase() === 'rechtliches')) {
-                        item.classList.add('active');
-                    }
-                });
+                window.scrollTo({ top: el.offsetTop - 120, behavior: 'smooth' });
             }
         }
+
         function openModal() { document.getElementById('infoModal').classList.add('active'); }
         function closeModal() { document.getElementById('infoModal').classList.remove('active'); }
         function showSuccess() {
@@ -503,7 +492,7 @@
                 const element = document.getElementById(section);
                 if (element) {
                     const sectionTop = element.offsetTop;
-                    if (pageYOffset >= sectionTop - 200) {
+                    if (pageYOffset >= sectionTop - 250) {
                         current = section;
                     }
                 }
@@ -511,7 +500,9 @@
 
             navItems.forEach(item => {
                 item.classList.remove('active');
-                if (item.getAttribute('onclick').includes(current)) {
+                // Check if the link text or ID matches the current section
+                const onclickAttr = item.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(current)) {
                     item.classList.add('active');
                 }
             });
