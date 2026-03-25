@@ -75,7 +75,7 @@
         }
 
         .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 40px 15px var(--accent-glow); }
+        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 15px var(--accent-glow); }
 
         .reveal-text {
             background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.25));
@@ -191,32 +191,6 @@
             0% { transform: scale(0) translate(0,0); opacity: 1; }
             100% { transform: scale(1) translate(var(--tw-x, 20px), var(--tw-y, -20px)); opacity: 0; }
         }
-
-        /* Hero Background Styling */
-        .hero-bg-wrapper {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .hero-bg-image {
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            top: -10%;
-            left: -10%;
-            object-fit: cover;
-            transform: rotate(-90deg); /* Gegen den Uhrzeigersinn drehen */
-            opacity: 0.15; /* Sehr transparent */
-            filter: grayscale(1);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.4), rgba(10, 10, 12, 1)); /* Schwarze Schicht drüber */
-        }
     </style>
 </head>
 <body>
@@ -224,6 +198,7 @@
     <div id="blob1" class="bg-blob" style="top: -150px; left: -150px;"></div>
     <div id="blob2" class="bg-blob" style="bottom: -150px; right: -150px;"></div>
 
+    <!-- Header Update for Centered Nav -->
     <header class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 bg-transparent backdrop-blur-md border-b border-white/5">
         <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-3 items-center">
             
@@ -260,30 +235,25 @@
                 <button onclick="openModal()" class="hidden sm:block glass-card px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">
                     Direkt-Anfrage
                 </button>
+                <!-- Mobile Menu Placeholder / Icon could go here -->
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6">
         
-        <section id="home" class="pt-56 pb-48 text-center relative flex flex-col items-center min-h-[90vh] justify-center">
-            <!-- Background Image Integration -->
-            <div class="hero-bg-wrapper">
-                <img src="https://plus.unsplash.com/premium_photo-1677172367158-0133269d2937?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="hero-bg-image" alt="Hintergrund Metall">
-                <div class="hero-overlay"></div>
-            </div>
-
-            <div class="inline-block status-pill mb-10 shadow-2xl shadow-orange-500/20 relative z-10">
+        <section id="home" class="pt-56 pb-48 text-center relative flex flex-col items-center">
+            <div class="inline-block status-pill mb-10 shadow-2xl shadow-orange-500/20">
                 <span class="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
                 Zertifizierter Schweißfachbetrieb
             </div>
-            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black reveal-text leading-[0.95] mb-10 tracking-tighter relative z-10">
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black reveal-text leading-[0.95] mb-10 tracking-tighter">
                 METALL IN <br> <span class="metal-accent">PERFEKTION.</span>
             </h1>
-            <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed relative z-10">
+            <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
                 E & W Metalvision GmbH steht für handwerkliche Präzision bei Schweißkonstruktionen, Metallbau und exklusivem Design. Wir formen Stahl mit Vision.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
                 <button onclick="scrollToSection('leistungen')" class="bg-white text-black px-12 py-6 rounded-full font-extrabold hover:bg-orange-500 transition-all shadow-xl shadow-white/5">Portfolio entdecken</button>
                 <button onclick="scrollToSection('ueber')" class="glass-card px-12 py-6 rounded-full font-extrabold hover:bg-white/5 transition-all">Über uns</button>
             </div>
@@ -368,7 +338,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter">Stahlbau</h3>
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        E & W Metalvision GmbH plan, fertigt und montiert für Sie individuelle Stahlbaukonstruktionen. Wir realisieren robuste Lösungen für Industrie- und Gewerbebauten nach Ihren Vorgaben.
+                        E & W Metalvision GmbH plant, fertigt und montiert für Sie individuelle Stahlbaukonstruktionen. Wir realisieren robuste Lösungen für Industrie- und Gewerbebauten nach Ihren Vorgaben.
                     </p>
                 </div>
 
@@ -530,6 +500,7 @@
 
             navItems.forEach(item => {
                 item.classList.remove('active');
+                // Check if the link text or ID matches the current section
                 const onclickAttr = item.getAttribute('onclick');
                 if (onclickAttr && onclickAttr.includes(current)) {
                     item.classList.add('active');
