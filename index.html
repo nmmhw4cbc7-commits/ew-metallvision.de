@@ -1,512 +1,769 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E & W Metalvision GmbH | Meisterhafte Metallbearbeitung</title>
-    <!-- Favicon / Tab Image -->
-    <link rel="icon" type="image/png" href="https://chatgpt.com/backend-api/estuary/content?id=file_0000000050e07206aa6534f8d0fbfd94&ts=492903&p=fs&cid=1&sig=0c41c3ef74e303003f0408041cdca0ca27b7d320bb08912b74f1141e14fae567&v=0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --ios-blur: blur(45px);
-            --ios-bg: rgba(255, 255, 255, 0.03);
-            --ios-border: rgba(255, 255, 255, 0.12);
-            --accent: #F97316; 
-            --accent-glow: rgba(249, 115, 22, 0.4);
-            --dark-bg: #0a0a0c;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E & W Metalvision GmbH | Schweißfachbetrieb & Stahlbau, Hude</title>
+<meta name="description" content="E & W Metalvision GmbH aus Hude: zertifizierter Schweißfachbetrieb für MAG/WIG-Schweißarbeiten, Stahlbau, Metallbau, Planung, Montage und Wartung.">
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at top right, #1a1a1e, #0a0a0c, #0d0d0f);
-            color: #ffffff;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23191815'/%3E%3Cpath d='M16 14H48V22H37V42H48V50H16V42H27V22H16Z' fill='%23E8E4DA'/%3E%3C/svg%3E">
 
-        header, main, footer {
-            width: 100%;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-        .glass-card {
-            background: var(--ios-bg);
-            backdrop-filter: var(--ios-blur);
-            -webkit-backdrop-filter: var(--ios-blur);
-            border: 1px solid var(--ios-border);
-            border-radius: 40px; 
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-            overflow: hidden;
-        }
+<style>
+  :root{
+    --paper:#E8E4DA;
+    --paper-alt:#DEDACD;
+    --ink:#191815;
+    --ink-soft:#4C473F;
+    --charcoal:#201F1C;
+    --charcoal-soft:#2B2925;
+    --line:#B7AF9E;
+    --line-dark:#48453E;
+    --ochre:#B26D14;
+    --ochre-deep:#8F5710;
+    --steel:#46586B;
+    --paper-text-on-charcoal:#E8E4DA;
+  }
 
-        .glass-card:hover {
-            border-color: rgba(249, 115, 22, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-        }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
 
-        /* Centered Nav Styling */
-        .ios-nav {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid var(--ios-border);
-            border-radius: 35px;
-            padding: 4px;
-            display: flex;
-            gap: 2px;
-            backdrop-filter: blur(10px);
-        }
+  h1,h2,h3,h4{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin:0;
+    color:var(--ink);
+  }
 
-        .nav-item {
-            color: rgba(255,255,255,0.5);
-            font-weight: 600;
-            font-size: 0.75rem;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            cursor: pointer;
-            white-space: nowrap;
-        }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 28px; }
 
-        .nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-item.active { color: #fff; background: var(--accent); box-shadow: 0 4px 15px var(--accent-glow); }
+  .label{
+    font-family:'Archivo', sans-serif;
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
 
-        .reveal-text {
-            background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.25));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:15px 30px;
+    font-family:'Archivo', sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+    cursor:pointer;
+    transition:background-color .18s ease, color .18s ease, border-color .18s ease;
+    background:transparent;
+    color:var(--ink);
+  }
+  .btn-solid{ background:var(--ink); color:var(--paper); }
+  .btn-solid:hover{ background:var(--ochre); border-color:var(--ochre); color:#fff; }
+  .btn-ghost:hover{ border-color:var(--ochre); color:var(--ochre-deep); }
+  .btn-on-dark{ border-color:var(--paper); color:var(--paper); }
+  .btn-on-dark:hover{ background:var(--paper); color:var(--ink); }
 
-        .bg-blob {
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            filter: blur(140px);
-            z-index: -1;
-            opacity: 0.18;
-            pointer-events: none;
-        }
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1.5px solid var(--ink);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{ display:flex; align-items:center; gap:14px; cursor:pointer; }
+  .brand-mark{ width:38px; height:38px; flex-shrink:0; }
+  .brand-text{ display:flex; flex-direction:column; line-height:1; }
+  .brand-text .name{ font-family:'Big Shoulders Display'; font-weight:800; font-size:1.15rem; letter-spacing:0.02em; }
+  .brand-text .name span{ color:var(--ochre-deep); }
+  .brand-text .sub{ font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px; }
 
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+  .main-nav{ display:none; align-items:center; gap:34px; }
+  .main-nav a{ font-size:0.82rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; padding-bottom:4px; border-bottom:2px solid transparent; }
+  .main-nav a:hover, .main-nav a.active{ border-bottom-color:var(--ochre); color:var(--ochre-deep); }
 
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  .header-actions{ display:flex; align-items:center; gap:18px; }
+  .header-phone{ display:none; font-family:'Big Shoulders Display'; font-weight:700; font-size:1rem; letter-spacing:0.02em; }
 
-        .glass-card:hover img {
-            transform: scale(1.08);
-        }
+  .menu-toggle{
+    display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .menu-toggle span{ width:24px; height:2px; background:var(--ink); display:block; }
 
-        .status-pill {
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            color: var(--accent);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    border-top:1.5px solid var(--ink);
+    background:var(--paper);
+  }
+  .mobile-nav.open{ display:flex; }
+  .mobile-nav a{
+    padding:16px 28px; border-bottom:1px solid var(--line);
+    font-weight:600; text-transform:uppercase; letter-spacing:0.04em; font-size:0.85rem;
+  }
 
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.92);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .modal.active { display: flex; opacity: 1; }
+  @media(min-width:960px){
+    .main-nav{ display:flex; }
+    .header-phone{ display:block; }
+    .menu-toggle{ display:none; }
+  }
 
-        .metal-accent { color: var(--accent); }
+  /* ---------- Hero ---------- */
+  .hero{ padding:64px 0 40px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(min-width:960px){
+    .hero-grid{ grid-template-columns:1.15fr 0.85fr; }
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.1rem);
+    line-height:0.98;
+    max-width:14ch;
+  }
+  .hero h1 .accent{ color:var(--ochre-deep); }
+  .hero p.lede{
+    margin-top:26px;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    font-weight:400;
+  }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:16px; margin-top:34px; }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0a0a0c; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+  /* Nameplate signature element */
+  .plate-wrap{ display:flex; justify-content:center; }
+  .plate{
+    position:relative;
+    width:100%;
+    max-width:380px;
+    background:linear-gradient(155deg, #35332F 0%, #201F1C 55%, #2A2825 100%);
+    border:1.5px solid var(--line-dark);
+    border-radius:4px;
+    padding:30px 26px 26px;
+    color:var(--paper-text-on-charcoal);
+  }
+  .plate::before, .plate::after,
+  .plate .rivet{
+    content:''; position:absolute; width:9px; height:9px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #85807a, #100f0d 75%);
+  }
+  .plate::before{ top:12px; left:12px; }
+  .plate::after{ top:12px; right:12px; }
+  .plate .rivet.br{ bottom:12px; right:12px; }
+  .plate .rivet.bl{ bottom:12px; left:12px; }
+  .plate-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    border-bottom:1px solid var(--line-dark); padding-bottom:14px; margin-bottom:14px;
+  }
+  .plate-top .plate-label{ font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:#A6A199; }
+  .plate-top .plate-id{ font-family:'Big Shoulders Display'; font-size:1.3rem; font-weight:700; letter-spacing:0.03em; }
+  .plate-cert{ font-family:'Big Shoulders Display'; font-size:1.55rem; font-weight:800; line-height:1.05; text-transform:uppercase; margin-bottom:16px; }
+  .plate-row{
+    display:flex; justify-content:space-between; gap:12px;
+    font-size:0.78rem; padding:7px 0; border-top:1px solid var(--line-dark);
+  }
+  .plate-row:first-of-type{ border-top:none; }
+  .plate-row dt{ color:#A6A199; }
+  .plate-row dd{ margin:0; text-align:right; font-weight:600; }
 
-        .legal-text {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-            line-height: 1.8;
-        }
-        .legal-text h3 {
-            color: #fff;
-            font-weight: 800;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+  /* ---------- Fact strip ---------- */
+  .fact-strip{
+    border-top:1.5px solid var(--ink);
+    border-bottom:1.5px solid var(--ink);
+    margin-top:52px;
+  }
+  .fact-grid{
+    display:grid; grid-template-columns:1fr; 
+  }
+  @media(min-width:760px){
+    .fact-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+  .fact{
+    padding:22px 28px;
+    border-bottom:1px solid var(--line);
+  }
+  @media(min-width:760px){
+    .fact{ border-bottom:none; border-right:1px solid var(--line); }
+    .fact:last-child{ border-right:none; }
+  }
+  .fact .label{ margin-bottom:6px; }
+  .fact .value{ font-family:'Big Shoulders Display'; font-weight:700; font-size:1.15rem; }
 
-        .logo-container {
-            position: relative;
-            width: 44px;
-            height: 44px;
-            transition: all 0.5s ease;
-        }
+  /* ---------- Sections ---------- */
+  .section{ padding:96px 0; }
+  .section.tight{ padding-top:76px; }
+  .section-head{
+    display:flex; flex-direction:column; gap:10px;
+    margin-bottom:48px;
+    border-bottom:1.5px solid var(--ink);
+    padding-bottom:22px;
+  }
+  .section-head h2{ font-size:clamp(1.8rem,4vw,2.6rem); }
+  .section-head p{ color:var(--ink-soft); max-width:56ch; font-size:1rem; }
+  .section-charcoal{ background:var(--charcoal); color:var(--paper-text-on-charcoal); }
+  .section-charcoal h2, .section-charcoal h3, .section-charcoal h4{ color:var(--paper-text-on-charcoal); }
+  .section-charcoal .section-head{ border-color:var(--line-dark); }
+  .section-charcoal .label{ color:#A6A199; }
 
-        .logo-svg {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 8px var(--accent-glow));
-        }
+  /* ---------- Gallery ---------- */
+  .gallery{
+    display:grid; grid-template-columns:1fr; gap:22px;
+  }
+  @media(min-width:820px){
+    .gallery{ grid-template-columns:1.3fr 1fr; }
+  }
+  .gallery-secondary{ display:grid; grid-template-rows:1fr 1fr; gap:22px; }
+  .gallery-secondary-bottom{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
 
-        .logo-spark {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-        }
+  .frame{
+    position:relative;
+    border:1px solid var(--ink);
+    border-radius:2px;
+    overflow:hidden;
+    min-height:220px;
+  }
+  .frame::before, .frame::after{
+    content:''; position:absolute; width:16px; height:16px; z-index:2; pointer-events:none;
+  }
+  .frame::before{ top:-1px; left:-1px; border-top:3px solid var(--ochre); border-left:3px solid var(--ochre); }
+  .frame::after{ bottom:-1px; right:-1px; border-bottom:3px solid var(--ochre); border-right:3px solid var(--ochre); }
+  .frame img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .frame-tall{ height:100%; min-height:460px; }
+  .frame-caption{
+    position:absolute; left:0; right:0; bottom:0; z-index:3;
+    background:rgba(25,24,21,0.86);
+    color:var(--paper);
+    padding:16px 20px;
+  }
+  .frame-caption .ref{ font-family:'Archivo'; font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ochre); display:block; margin-bottom:4px; }
+  .frame-caption h4{ color:#fff; font-size:1.15rem; }
+  .frame-caption p{ font-size:0.82rem; color:#C9C4B8; margin:6px 0 0; max-width:34ch; }
 
-        .logo-container:hover .logo-spark {
-            animation: spark-fly 1s infinite ease-out;
-        }
+  /* ---------- Leistungen: Stückliste ---------- */
+  .bom{ border-top:1.5px solid var(--ink); }
+  .bom-row{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-bottom:1.5px solid var(--ink);
+  }
+  @media(min-width:760px){
+    .bom-row{ grid-template-columns:70px 220px 1fr; }
+  }
+  .bom-row .pos{
+    font-family:'Big Shoulders Display'; font-weight:800; font-size:1.6rem; color:var(--ochre-deep);
+  }
+  .bom-row h3{ font-size:1.35rem; }
+  .bom-row .desc{ color:var(--ink-soft); font-size:0.98rem; max-width:62ch; }
+  .bom-row .desc{ grid-column:1 / -1; }
+  @media(min-width:760px){
+    .bom-row .desc{ grid-column:auto; }
+  }
 
-        @keyframes spark-fly {
-            0% { transform: scale(0) translate(0,0); opacity: 1; }
-            100% { transform: scale(1) translate(var(--tw-x, 20px), var(--tw-y, -20px)); opacity: 0; }
-        }
-    </style>
+  /* ---------- Prozess ---------- */
+  .process{
+    display:grid; grid-template-columns:1fr; gap:0;
+    position:relative;
+  }
+  @media(min-width:860px){
+    .process{ grid-template-columns:repeat(4,1fr); }
+  }
+  .process-step{
+    padding:26px 24px 26px 0;
+    border-top:1.5px solid var(--line-dark);
+    position:relative;
+  }
+  @media(min-width:860px){
+    .process-step{ border-top:none; border-left:1.5px solid var(--line-dark); padding:4px 24px; }
+    .process-step:first-child{ border-left:none; padding-left:0; }
+  }
+  .process-step .num{
+    font-family:'Big Shoulders Display'; font-weight:800; font-size:2.2rem; color:var(--ochre);
+  }
+  .process-step h4{ color:#fff; font-size:1.15rem; margin-top:6px; }
+  .process-step p{ color:#B7B2A6; font-size:0.9rem; margin-top:8px; }
+
+  /* ---------- About panel (Titelblock) ---------- */
+  .titleblock{
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+  }
+  .titleblock-top{ padding:44px 36px; border-bottom:1.5px solid var(--ink); }
+  .titleblock-top h2{ font-size:clamp(1.9rem,4.2vw,2.7rem); max-width:20ch; }
+  .titleblock-body{
+    display:grid; grid-template-columns:1fr; gap:0;
+  }
+  @media(min-width:800px){
+    .titleblock-body{ grid-template-columns:1fr 1fr; }
+  }
+  .titleblock-cell{ padding:36px; }
+  @media(min-width:800px){
+    .titleblock-cell:first-child{ border-right:1.5px solid var(--ink); }
+  }
+  .titleblock-cell p{ color:var(--ink-soft); }
+  .titleblock-cell + .titleblock-cell{ border-top:1.5px solid var(--ink); }
+  @media(min-width:800px){
+    .titleblock-cell + .titleblock-cell{ border-top:none; }
+  }
+  .founders{
+    display:flex; gap:28px; margin-top:22px; flex-wrap:wrap;
+  }
+  .founder .label{ margin-bottom:4px; }
+  .founder .fname{ font-family:'Big Shoulders Display'; font-weight:700; font-size:1.05rem; }
+
+  /* ---------- Impressum ---------- */
+  .legal-grid{
+    display:grid; grid-template-columns:1fr; gap:44px;
+  }
+  @media(min-width:800px){
+    .legal-grid{ grid-template-columns:1fr 1fr; }
+  }
+  .legal-block h3{
+    font-family:'Archivo'; text-transform:uppercase; letter-spacing:0.08em; font-size:0.85rem;
+    color:var(--ochre); margin-bottom:10px; margin-top:26px;
+  }
+  .legal-block h3:first-child{ margin-top:0; }
+  .legal-block p{ color:#C9C4B8; font-size:0.9rem; line-height:1.8; }
+  .legal-block a{ color:var(--ochre); text-decoration:underline; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--ink); color:var(--paper); padding:64px 0 26px; }
+  .footer-grid{
+    display:grid; grid-template-columns:1fr; gap:42px;
+  }
+  @media(min-width:800px){
+    .footer-grid{ grid-template-columns:1.4fr 1fr 1fr; }
+  }
+  .footer-brand .name{ font-family:'Big Shoulders Display'; font-weight:800; font-size:1.5rem; }
+  .footer-brand .name span{ color:var(--ochre); }
+  .footer-brand p{ color:#A6A199; max-width:38ch; margin-top:14px; }
+  .footer-col .label{ color:#8B8679; margin-bottom:14px; }
+  .footer-col p, .footer-col address{ font-style:normal; color:#E8E4DA; font-size:0.95rem; line-height:1.9; }
+  .footer-bottom{
+    margin-top:52px; padding-top:22px; border-top:1px solid var(--line-dark);
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;
+    font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#6E6A60;
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(25,24,21,0.82);
+    z-index:200; align-items:center; justify-content:center; padding:20px;
+  }
+  .modal-overlay.active{ display:flex; }
+  .modal-box{
+    background:var(--paper); border:1.5px solid var(--ink); border-radius:4px;
+    width:100%; max-width:480px; padding:40px 32px 32px; position:relative;
+  }
+  .modal-close{
+    position:absolute; top:18px; right:18px; background:none; border:none;
+    font-size:1.4rem; cursor:pointer; color:var(--ink);
+    width:32px; height:32px;
+  }
+  .modal-box h2{ font-size:1.7rem; margin-bottom:22px; }
+  .field{ margin-bottom:14px; }
+  .field label{ display:block; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px; }
+  .field input, .field textarea{
+    width:100%; border:1.5px solid var(--ink); border-radius:3px; padding:12px 14px;
+    font-family:'Archivo'; font-size:0.95rem; background:#fff; color:var(--ink);
+  }
+  .field textarea{ min-height:110px; resize:vertical; }
+  .field input:focus, .field textarea:focus{ outline:2px solid var(--ochre); outline-offset:1px; }
+  .modal-success{ text-align:center; padding:30px 0; font-weight:700; color:var(--ochre-deep); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
 </head>
 <body>
 
-    <div id="blob1" class="bg-blob" style="top: -150px; left: -150px;"></div>
-    <div id="blob2" class="bg-blob" style="bottom: -150px; right: -150px;"></div>
-
-    <!-- Header Update for Centered Nav -->
-    <header class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 bg-transparent backdrop-blur-md border-b border-white/5">
-        <div class="max-w-[1600px] mx-auto grid grid-cols-2 lg:grid-cols-3 items-center">
-            
-            <!-- Logo Section (Left) -->
-            <div class="flex items-center gap-4 group cursor-pointer" onclick="scrollToSection('home')">
-                <div class="logo-container shrink-0">
-                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="currentColor" stroke-width="2" class="text-white/20"/>
-                        <path d="M35 30H55M35 50H50M35 70H55M35 30V70" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M55 30L65 70L75 50L85 70L95 30" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="85" cy="25" r="4" fill="var(--accent)" class="animate-pulse"/>
-                    </svg>
-                    <div class="logo-spark" style="--tw-x: 30px; --tw-y: -15px; top: 20%; left: 50%;"></div>
-                    <div class="logo-spark" style="--tw-x: -25px; --tw-y: -30px; top: 40%; left: 40%; animation-delay: 0.2s;"></div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="text-lg font-bold tracking-tighter uppercase leading-none">E&W METAL<span class="text-orange-500">VISION</span></div>
-                    <div class="text-[8px] uppercase tracking-[0.3em] font-light opacity-40 mt-1">Meisterhandwerk</div>
-                </div>
-            </div>
-
-            <!-- Navigation Section (Center) -->
-            <div class="hidden lg:flex justify-center">
-                <nav class="ios-nav">
-                    <div class="nav-item active" onclick="scrollToSection('home')">Home</div>
-                    <div class="nav-item" onclick="scrollToSection('leistungen')">Portfolio</div>
-                    <div class="nav-item" onclick="scrollToSection('ueber')">Über uns</div>
-                    <div class="nav-item" onclick="scrollToSection('impressum')">Rechtliches</div>
-                </nav>
-            </div>
-
-            <!-- Action Section (Right) -->
-            <div class="flex justify-end items-center gap-6">
-                <button onclick="openModal()" class="hidden sm:block glass-card px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500 hover:text-black transition-all">
-                    Direkt-Anfrage
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6">
-        
-        <section id="home" class="pt-56 pb-48 text-center relative flex flex-col items-center">
-            <div class="inline-block status-pill mb-10 shadow-2xl shadow-orange-500/20">
-                <span class="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse mr-2"></span>
-                Zertifizierter Schweißfachbetrieb
-            </div>
-            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black reveal-text leading-[0.95] mb-10 tracking-tighter">
-                METALL IN <br> <span class="metal-accent">PERFEKTION.</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-                E & W Metalvision GmbH steht für handwerkliche Präzision bei Schweißkonstruktionen, Metallbau und exklusivem Design. Wir formen Stahl mit Vision.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <button onclick="scrollToSection('leistungen')" class="bg-white text-black px-12 py-6 rounded-full font-extrabold hover:bg-orange-500 transition-all shadow-xl shadow-white/5">Portfolio entdecken</button>
-                <button onclick="scrollToSection('ueber')" class="glass-card px-12 py-6 rounded-full font-extrabold hover:bg-white/5 transition-all">Über uns</button>
-            </div>
-        </section>
-
-        <!-- Galerie Sektion -->
-        <section class="mb-56 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass-card h-[600px] group cursor-pointer relative">
-                <div class="image-container absolute inset-0">
-                    <img src="https://www.ir-bauen.com/uploads/media/1200x630/01/91-Industriebau%20%284%29.jpg?v=1-0" alt="Industriehalle Metall">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-10 left-10 z-10">
-                    <span class="text-orange-500 font-mono text-xs tracking-widest mb-2 block">GROSSPROJEKTE</span>
-                    <h4 class="text-3xl font-black uppercase tracking-tighter italic">Industriehalle</h4>
-                    <p class="text-gray-400 text-sm mt-2 max-w-xs">Komplette Stahlbau-Lösungen für moderne Fertigungsstätten.</p>
-                </div>
-            </div>
-            <div class="grid grid-rows-2 gap-8">
-                <div class="glass-card group cursor-pointer relative h-full">
-                    <div class="image-container absolute inset-0">
-                        <img src="https://plus.unsplash.com/premium_photo-1673266203719-85fa77b31ec8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGZldWVydHJlcHBlfGVufDB8fDB8fHww" alt="Feuertreppe Stahl">
-                    </div>
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-                    <div class="relative z-10 flex h-full items-end p-10">
-                        <div>
-                            <h4 class="font-bold uppercase tracking-widest text-lg">Feuertreppe</h4>
-                            <p class="text-[10px] text-orange-500 mt-1 uppercase tracking-widest font-black">Sicherheit & Normerfüllung</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="glass-card group cursor-pointer relative h-full">
-                        <div class="image-container absolute inset-0">
-                            <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=2070&auto=format&fit=crop" alt="Holzlagerschrank Metall">
-                        </div>
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-                        <div class="relative z-10 flex h-full items-end p-6">
-                            <h4 class="font-bold uppercase text-xs tracking-widest">Holzlager</h4>
-                        </div>
-                    </div>
-                    <div class="glass-card group cursor-pointer relative h-full">
-                        <div class="image-container absolute inset-0">
-                            <img src="https://hydro-cleansing.de/fileadmin/_processed_/2/f/csm_restoil-gmbh-entsorgung-bohrschlamm-01_4239f4cc68.jpg" alt="Bohrschlammrutsche">
-                        </div>
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-700"></div>
-                        <div class="relative z-10 flex h-full items-end p-6">
-                            <h4 class="font-bold uppercase text-xs tracking-widest leading-tight">Schlammrutsche</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leistungen Grid -->
-        <section id="leistungen" class="mb-56">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                <div>
-                    <span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-4">EXPERTISE</span>
-                    <h2 class="text-5xl font-black tracking-tighter uppercase">Unsere Leistungen.</h2>
-                </div>
-                <div class="h-[1px] flex-grow bg-white/10 mx-10 hidden md:block mb-4"></div>
-                <span class="text-gray-600 font-mono text-2xl">01</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="glass-card p-12 group border-l-4 border-l-orange-500/30">
-                    <div class="flex items-start justify-between mb-8">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-orange-500 group-hover:text-black transition-all">🔥</div>
-                        <span class="text-white/10 font-black text-4xl">01</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter">Schweißfachbetrieb</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Wir führen für Sie Schweißarbeiten in den Schweißverfahren MAG und WIG durch. Als zertifizierter Schweißfachbetrieb garantieren wir höchste Qualität und Präzision bei jedem Projekt.
-                    </p>
-                </div>
-
-                <div class="glass-card p-12 group border-l-4 border-l-orange-500/30">
-                    <div class="flex items-start justify-between mb-8">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-orange-500 group-hover:text-black transition-all">🏗️</div>
-                        <span class="text-white/10 font-black text-4xl">02</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter">Stahlbau</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        E & W Metalvision GmbH plant, fertigt und montiert für Sie individuelle Stahlbaukonstruktionen. Wir realisieren robuste Lösungen für Industrie- und Gewerbebauten nach Ihren Vorgaben.
-                    </p>
-                </div>
-
-                <div class="glass-card p-12 group border-l-4 border-l-orange-500/30">
-                    <div class="flex items-start justify-between mb-8">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-orange-500 group-hover:text-black transition-all">⚒️</div>
-                        <span class="text-white/10 font-black text-4xl">03</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter">Metallbau</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Wir sind Ihr Partner für anspruchsvolle Metallbauarbeiten. Von Treppen und Geländern bis hin zu individuellen Sonderkonstruktionen bieten wir maßgeschneiderte Lösungen aus einer Hand.
-                    </p>
-                </div>
-
-                <div class="glass-card p-12 group border-l-4 border-l-orange-500/30">
-                    <div class="flex items-start justify-between mb-8">
-                        <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-orange-500 group-hover:text-black transition-all">📐</div>
-                        <span class="text-white/10 font-black text-4xl">04</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter leading-tight">Planung, Montage & Wartung</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Wir begleiten Ihr Projekt ganzheitlich: Von der ersten Planungsskizze über den sicheren Transport und die fachgerechte Montage bis hin zur regelmäßigen Wartung Ihrer Anlagen.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Über Uns -->
-        <section id="ueber" class="glass-card p-12 md:p-20 mb-56 relative overflow-hidden flex flex-col items-center text-center">
-            <div class="relative z-10 w-full max-w-5xl">
-                <span class="text-orange-500 font-mono text-sm tracking-[0.3em] block mb-6 uppercase">Über uns</span>
-                <h2 class="text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tighter uppercase">Metall ist unsere <br> <span class="metal-accent">Leidenschaft.</span></h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 text-left">
-                    <p class="text-gray-400 text-lg leading-relaxed font-light">
-                        E & W Metalvision GmbH ist ein vielseitiges Unternehmen im Bereich Metallbau, bestehend aus erfahrenen Mitarbeitern, die sich in ihren jeweiligen Branchen bewährt haben.
-                    </p>
-                    <p class="text-gray-400 text-lg leading-relaxed font-light">
-                        Unser gemeinsames Ziel ist es, Projekte nicht nur zu entwerfen, sondern Visionen in Metall zu verwandeln. Ihre Zufriedenheit steht im Mittelpunkt jeder Schweißnaht.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Impressum & Rechtliches -->
-        <section id="impressum" class="mb-56">
-            <div class="glass-card p-12 md:p-20">
-                <h2 class="text-4xl font-black tracking-tighter uppercase mb-12 italic">Impressum.</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <div class="legal-text">
-                        <h3>Angaben gem. § 5 TMG</h3>
-                        <p>
-                            E & W Metalvision GmbH<br>
-                            Im Gewerbepark 4<br>
-                            27798 Hude<br>
-                            Deutschland<br>
-                            <a href="http://www.ew-metalvision.de" class="text-orange-500">www.ew-metalvision.de</a>
-                        </p>
-                        <p class="mt-4">
-                            Registergericht der GmbH: Amtsgericht Oldenburg<br>
-                            Registernummer der GmbH: HRB 218924<br>
-                            Umsatzsteuer-Identifikationsnummer gem. § 27a UStG: DE357580663
-                        </p>
-
-                        <h3>Vertretungsberechtiger Geschäftsführer</h3>
-                        <p>Wilhelm Zerbin, Erwin Zerbin</p>
-
-                        <h3>Kontakt</h3>
-                        <p>
-                            E-mail: info@ew-metalvision.de<br>
-                            Telefon: +49 4408 9845368
-                        </p>
-                    </div>
-
-                    <div class="legal-text">
-                        <h3>Streitbeilegung</h3>
-                        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" class="text-orange-500 underline">ec.europa.eu/consumers/odr</a>.</p>
-
-                        <h3>Haftung für Inhalte</h3>
-                        <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
-
-                        <h3>Urheberrecht</h3>
-                        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung bedarf der schriftlichen Zustimmung.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer id="kontakt" class="px-6 pb-20 flex flex-col items-center">
-        <div class="glass-card max-w-7xl w-full p-16 md:p-24">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-                <div class="lg:col-span-2">
-                    <div class="text-3xl font-black mb-8 italic tracking-tighter uppercase">E&W METAL<span class="text-orange-500">VISION</span></div>
-                    <p class="text-gray-500 mb-10 max-w-sm">Meisterhafte Metallbearbeitung aus Hude. Wir setzen Ihre Visionen in Stahl um.</p>
-                </div>
-                <div>
-                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Zentrale</h4>
-                    <address class="not-italic text-gray-400 text-sm space-y-2">
-                        Im Gewerbepark 4<br>
-                        27798 Hude
-                    </address>
-                </div>
-                <div>
-                    <h4 class="text-orange-500 uppercase text-[10px] font-black tracking-[0.4em] mb-8">Kontakt</h4>
-                    <p class="text-white font-black text-lg">+49 4408 9845368</p>
-                    <p class="text-gray-400 text-xs">info@ew-metalvision.de</p>
-                </div>
-            </div>
-        </div>
-        <div class="mt-12 text-[10px] font-bold uppercase tracking-[0.5em] text-white/20">
-            made by philipp dachtler
-        </div>
-    </footer>
-
-    <!-- Anfrage Modal -->
-    <div id="infoModal" class="modal">
-        <div class="glass-card p-12 max-w-xl w-full relative">
-            <button onclick="closeModal()" class="absolute top-8 right-8 text-gray-500 text-xl font-bold">&times;</button>
-            <h2 class="text-3xl font-black mb-8 italic tracking-tighter text-orange-500 uppercase">ANFRAGE</h2>
-            <div id="modalContent" class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all">
-                <input type="email" placeholder="E-Mail" class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl outline-none focus:border-orange-500 transition-all">
-                <textarea placeholder="Nachricht..." class="w-full bg-white/5 border border-white/10 p-5 rounded-3xl h-32 outline-none focus:border-orange-500 transition-all"></textarea>
-                <button onclick="showSuccess()" class="w-full bg-white text-black font-black py-5 rounded-3xl hover:bg-orange-500 transition-all uppercase">Senden</button>
-            </div>
-        </div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand" onclick="scrollToSection('home')">
+      <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" fill="var(--ink)"/>
+        <path d="M16 14H48V22H37V42H48V50H16V42H27V22H16Z" fill="var(--paper)"/>
+      </svg>
+      <div class="brand-text">
+        <div class="name">E&amp;W METAL<span>VISION</span></div>
+        <div class="sub">Schweißfachbetrieb · Hude</div>
+      </div>
     </div>
 
-    <script>
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                window.scrollTo({ top: el.offsetTop - 120, behavior: 'smooth' });
-            }
-        }
+    <nav class="main-nav" id="mainNav">
+      <a href="#leistungen" onclick="scrollToSection('leistungen');return false;">Leistungen</a>
+      <a href="#prozess" onclick="scrollToSection('prozess');return false;">Prozess</a>
+      <a href="#ueber" onclick="scrollToSection('ueber');return false;">Über uns</a>
+      <a href="#impressum" onclick="scrollToSection('impressum');return false;">Impressum</a>
+    </nav>
 
-        function openModal() { document.getElementById('infoModal').classList.add('active'); }
-        function closeModal() { document.getElementById('infoModal').classList.remove('active'); }
-        function showSuccess() {
-            document.getElementById('modalContent').innerHTML = '<div class="text-center py-10 font-bold text-orange-500">Danke! Wir melden uns zeitnah bei Ihnen.</div>';
-            setTimeout(closeModal, 2500);
-        }
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+4944089845368">+49 4408 9845368</a>
+      <button class="btn btn-solid" onclick="openModal()" style="padding:12px 22px;">Anfrage stellen</button>
+      <button class="menu-toggle" onclick="toggleMobileNav()" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#leistungen" onclick="scrollToSection('leistungen');return false;">Leistungen</a>
+    <a href="#prozess" onclick="scrollToSection('prozess');return false;">Prozess</a>
+    <a href="#ueber" onclick="scrollToSection('ueber');return false;">Über uns</a>
+    <a href="#impressum" onclick="scrollToSection('impressum');return false;">Impressum</a>
+    <a href="tel:+4944089845368">+49 4408 9845368</a>
+  </div>
+</header>
 
-        const sections = ['home', 'leistungen', 'ueber', 'impressum'];
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const element = document.getElementById(section);
-                if (element) {
-                    const sectionTop = element.offsetTop;
-                    if (pageYOffset >= sectionTop - 250) {
-                        current = section;
-                    }
-                }
-            });
+<main>
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                const onclickAttr = item.getAttribute('onclick');
-                if (onclickAttr && onclickAttr.includes(current)) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    </script>
+  <!-- HERO -->
+  <section id="home" class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Stahl nach Zeichnung.<br>Geschweißt <span class="accent">nach Norm.</span></h1>
+        <p class="lede">E &amp; W Metalvision GmbH plant, fertigt und montiert Schweißkonstruktionen, Stahlbau und Metallbau für Industrie- und Gewerbekunden im Raum Hude. Vom ersten Aufmaß bis zur Wartung vor Ort.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-solid" onclick="scrollToSection('leistungen')">Leistungen ansehen</button>
+          <button class="btn btn-ghost" onclick="scrollToSection('ueber')">Über uns</button>
+        </div>
+      </div>
+
+      <div class="plate-wrap">
+        <div class="plate">
+          <span class="rivet br"></span><span class="rivet bl"></span>
+          <div class="plate-top">
+            <div>
+              <div class="plate-label">Betriebsschild</div>
+              <div class="plate-id">E&amp;W</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="plate-label">Standort</div>
+              <div class="plate-id">Hude</div>
+            </div>
+          </div>
+          <div class="plate-cert">Zertifizierter Schweißfachbetrieb</div>
+          <dl style="margin:0;">
+            <div class="plate-row"><dt>Schweißverfahren</dt><dd>MAG / WIG</dd></div>
+            <div class="plate-row"><dt>Registergericht</dt><dd>AG Oldenburg</dd></div>
+            <div class="plate-row"><dt>Handelsregister</dt><dd>HRB 218924</dd></div>
+            <div class="plate-row"><dt>USt-IdNr.</dt><dd>DE357580663</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACT STRIP -->
+  <div class="fact-strip">
+    <div class="wrap">
+      <div class="fact-grid">
+        <div class="fact">
+          <div class="label">Geschäftsführung</div>
+          <div class="value">Wilhelm &amp; Erwin Zerbin</div>
+        </div>
+        <div class="fact">
+          <div class="label">Leistungsbereich</div>
+          <div class="value">Schweißtechnik, Stahl- &amp; Metallbau</div>
+        </div>
+        <div class="fact">
+          <div class="label">Einsatzgebiet</div>
+          <div class="value">Industrie &amp; Gewerbe, norddeutschlandweit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="section wrap">
+    <div class="section-head">
+      <h2>Ausgeführte Arbeiten</h2>
+      <p>Eine Auswahl abgeschlossener Projekte aus Stahlbau, Metallbau und Sonderanfertigung.</p>
+    </div>
+    <div class="gallery">
+      <div class="frame frame-tall">
+        <img src="https://www.ir-bauen.com/uploads/media/1200x630/01/91-Industriebau%20%284%29.jpg?v=1-0" alt="Stahlbau Industriehalle">
+        <div class="frame-caption">
+          <span class="ref">Projekt 01 · Großprojekt</span>
+          <h4>Industriehalle</h4>
+          <p>Kompletter Stahlbau für eine Fertigungshalle inklusive Tragwerk und Montage vor Ort.</p>
+        </div>
+      </div>
+      <div class="gallery-secondary">
+        <div class="frame">
+          <img src="https://plus.unsplash.com/premium_photo-1673266203719-85fa77b31ec8?w=800&auto=format&fit=crop&q=60" alt="Feuertreppe aus Stahl">
+          <div class="frame-caption">
+            <span class="ref">Projekt 02 · Metallbau</span>
+            <h4>Feuertreppe</h4>
+          </div>
+        </div>
+        <div class="gallery-secondary-bottom">
+          <div class="frame">
+            <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=800&auto=format&fit=crop" alt="Metall-Lagerkonstruktion">
+            <div class="frame-caption">
+              <span class="ref">Projekt 03</span>
+              <h4>Holzlager</h4>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="https://hydro-cleansing.de/fileadmin/_processed_/2/f/csm_restoil-gmbh-entsorgung-bohrschlamm-01_4239f4cc68.jpg" alt="Bohrschlammrutsche aus Stahl">
+            <div class="frame-caption">
+              <span class="ref">Projekt 04</span>
+              <h4>Schlammrutsche</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN: Stückliste -->
+  <section id="leistungen" class="section wrap tight">
+    <div class="section-head">
+      <h2>Leistungen</h2>
+      <p>Vier Leistungsbereiche, aus einer Hand geplant und ausgeführt.</p>
+    </div>
+    <div class="bom">
+      <div class="bom-row">
+        <div class="pos">01</div>
+        <h3>Schweißfachbetrieb</h3>
+        <p class="desc">Schweißarbeiten in den Verfahren MAG und WIG, ausgeführt von einem zertifizierten Schweißfachbetrieb nach geltender Norm.</p>
+      </div>
+      <div class="bom-row">
+        <div class="pos">02</div>
+        <h3>Stahlbau</h3>
+        <p class="desc">Planung, Fertigung und Montage individueller Stahlbaukonstruktionen für Industrie- und Gewerbebauten nach Ihren Vorgaben.</p>
+      </div>
+      <div class="bom-row">
+        <div class="pos">03</div>
+        <h3>Metallbau</h3>
+        <p class="desc">Treppen, Geländer und individuelle Sonderkonstruktionen. Maßgeschneidert für den jeweiligen Einsatzort.</p>
+      </div>
+      <div class="bom-row">
+        <div class="pos">04</div>
+        <h3>Planung, Montage &amp; Wartung</h3>
+        <p class="desc">Begleitung von der ersten Planungsskizze über den Transport und die fachgerechte Montage bis zur regelmäßigen Wartung Ihrer Anlagen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROZESS -->
+  <section id="prozess" class="section section-charcoal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ablauf eines Projekts</h2>
+        <p>Vier Schritte von der Anfrage bis zur laufenden Wartung.</p>
+      </div>
+      <div class="process">
+        <div class="process-step">
+          <div class="num">01</div>
+          <h4>Planung</h4>
+          <p>Aufmaß vor Ort, technische Klärung und Konstruktionszeichnung für Ihr Projekt.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">02</div>
+          <h4>Fertigung</h4>
+          <p>Zuschnitt, Schweißarbeiten und Vormontage in der Werkstatt.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">03</div>
+          <h4>Montage</h4>
+          <p>Transport und fachgerechte Montage direkt bei Ihnen vor Ort.</p>
+        </div>
+        <div class="process-step">
+          <div class="num">04</div>
+          <h4>Wartung</h4>
+          <p>Regelmäßige Prüfung und Instandhaltung nach Fertigstellung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber" class="section wrap">
+    <div class="titleblock">
+      <div class="titleblock-top">
+        <div class="label" style="margin-bottom:12px;">Über uns</div>
+        <h2>Erfahrene Handwerker, ein gemeinsamer Betrieb.</h2>
+      </div>
+      <div class="titleblock-body">
+        <div class="titleblock-cell">
+          <p>E &amp; W Metalvision GmbH ist ein Betrieb im Bereich Metallbau mit Sitz in Hude. Die Mitarbeiter bringen langjährige Erfahrung aus Schweißtechnik, Stahlbau und Metallbau mit und arbeiten seit der Gründung als festes Team zusammen.</p>
+          <div class="founders">
+            <div class="founder">
+              <div class="label">Geschäftsführer</div>
+              <div class="fname">Wilhelm Zerbin</div>
+            </div>
+            <div class="founder">
+              <div class="label">Geschäftsführer</div>
+              <div class="fname">Erwin Zerbin</div>
+            </div>
+          </div>
+        </div>
+        <div class="titleblock-cell">
+          <p>Jedes Projekt beginnt mit einem Aufmaß und einer technischen Zeichnung, damit Konstruktion und Ausführung genau zusammenpassen. Ob Einzelanfertigung oder größere Stahlbaukonstruktion: geplant, gefertigt und montiert wird in Hude und im gesamten norddeutschen Raum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPRESSUM -->
+  <section id="impressum" class="section section-charcoal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Impressum</h2>
+      </div>
+      <div class="legal-grid">
+        <div class="legal-block">
+          <h3>Angaben gem. § 5 TMG</h3>
+          <p>
+            E &amp; W Metalvision GmbH<br>
+            Im Gewerbepark 4<br>
+            27798 Hude<br>
+            Deutschland<br>
+            <a href="http://www.ew-metalvision.de">www.ew-metalvision.de</a>
+          </p>
+          <p>
+            Registergericht: Amtsgericht Oldenburg<br>
+            Registernummer: HRB 218924<br>
+            USt-IdNr. gem. § 27a UStG: DE357580663
+          </p>
+          <h3>Vertretungsberechtigte Geschäftsführer</h3>
+          <p>Wilhelm Zerbin, Erwin Zerbin</p>
+          <h3>Kontakt</h3>
+          <p>
+            E-Mail: info@ew-metalvision.de<br>
+            Telefon: +49 4408 9845368
+          </p>
+        </div>
+        <div class="legal-block">
+          <h3>Streitbeilegung</h3>
+          <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit, erreichbar unter <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. An einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nehmen wir nicht teil.</p>
+          <h3>Haftung für Inhalte</h3>
+          <p>Die Inhalte dieser Seiten wurden sorgfältig geprüft. Für Aktualität, Vollständigkeit und Richtigkeit können wir dennoch keine Gewähr übernehmen. Verpflichtungen zur Entfernung rechtswidriger Inhalte bleiben hiervon unberührt.</p>
+          <h3>Urheberrecht</h3>
+          <p>Texte, Bilder und sonstige Inhalte dieser Seite unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung außerhalb dieser Grenzen bedarf der vorherigen schriftlichen Zustimmung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="name">E&amp;W METAL<span>VISION</span></div>
+        <p>Schweißfachbetrieb, Stahlbau und Metallbau aus Hude. Von der Planung bis zur Wartung.</p>
+      </div>
+      <div class="footer-col">
+        <div class="label">Standort</div>
+        <address>
+          Im Gewerbepark 4<br>
+          27798 Hude
+        </address>
+      </div>
+      <div class="footer-col">
+        <div class="label">Kontakt</div>
+        <p>
+          +49 4408 9845368<br>
+          info@ew-metalvision.de
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© E &amp; W Metalvision GmbH</span>
+      <span>made by philipp dachtler</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="infoModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Schließen">&times;</button>
+    <h2>Anfrage</h2>
+    <div id="modalContent">
+      <div class="field">
+        <label for="f-name">Name</label>
+        <input id="f-name" type="text" placeholder="Ihr Name">
+      </div>
+      <div class="field">
+        <label for="f-mail">E-Mail</label>
+        <input id="f-mail" type="email" placeholder="ihre@email.de">
+      </div>
+      <div class="field">
+        <label for="f-msg">Nachricht</label>
+        <textarea id="f-msg" placeholder="Beschreiben Sie kurz Ihr Projekt"></textarea>
+      </div>
+      <button class="btn btn-solid" style="width:100%;" onclick="showSuccess()">Anfrage senden</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function scrollToSection(id){
+    const el = document.getElementById(id);
+    if(el){ window.scrollTo({ top: el.offsetTop - 84, behavior:'smooth' }); }
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+  function toggleMobileNav(){
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function openModal(){ document.getElementById('infoModal').classList.add('active'); }
+  function closeModal(){ document.getElementById('infoModal').classList.remove('active'); }
+  function showSuccess(){
+    document.getElementById('modalContent').innerHTML =
+      '<div class="modal-success">Danke. Wir melden uns zeitnah bei Ihnen.</div>';
+    setTimeout(closeModal, 2200);
+  }
+
+  const sections = ['home','leistungen','prozess','ueber','impressum'];
+  const navLinks = document.querySelectorAll('.main-nav a');
+  window.addEventListener('scroll', () => {
+    let current = 'home';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 160){ current = id; }
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
 </body>
 </html>
