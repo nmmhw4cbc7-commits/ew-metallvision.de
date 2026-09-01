@@ -10,349 +10,252 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --blueprint: #123152;
-  --blueprint-deep: #0c2440;
-  --paper: #eef4f8;
-  --line: rgba(238, 244, 248, 0.28);
-  --line-strong: rgba(238, 244, 248, 0.55);
-  --ember: #d8611f;
-  --ember-soft: rgba(216, 97, 31, 0.16);
+  --paper: #f3f4f2;
+  --ink: #17181a;
+  --steel: #55585c;
+  --rule: #d7d9d5;
+  --rust: #b7401c;
+  --hazard: #f2b705;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background: var(--blueprint);
-  color: var(--paper);
+  font-family: 'Public Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
-.mono { font-family: 'IBM Plex Mono', monospace; }
-
-/* Blueprint grid backdrop */
-.grid-field {
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.10;
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+h1, h2, h3, .display {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
-/* Registration / crosshair corner marks */
-.regmark { position: relative; }
-.regmark::before, .regmark::after {
-  content: '';
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--line-strong);
-}
-.regmark::before { top: -7px; left: -7px; border-right: none; border-bottom: none; }
-.regmark::after { bottom: -7px; right: -7px; border-left: none; border-top: none; }
+.rule { border-top: 1px solid var(--rule); }
+.rule-b { border-bottom: 1px solid var(--rule); }
 
-/* Hairline framed panel — replaces the soft glass card */
-.panel {
-  border: 1px solid var(--line);
-  background: rgba(238, 244, 248, 0.03);
-  position: relative;
-}
-.panel-tag {
-  position: absolute;
-  top: -12px;
-  left: 20px;
-  background: var(--blueprint);
-  padding: 0 10px;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  color: var(--paper);
-  opacity: 0.55;
-}
-
-/* Dimension line — a labelled measurement rule, used for real spec data */
-.dim-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--paper);
-  opacity: 0.75;
-}
-.dim-line .stroke { flex: 1; height: 1px; background: var(--line-strong); position: relative; }
-.dim-line .stroke::before, .dim-line .stroke::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  width: 1px;
+/* Hazard trim — a literal workshop-floor marking, used once as a structural divider, not decoration repeated everywhere */
+.hazard-trim {
   height: 7px;
-  background: var(--line-strong);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--hazard),
+    var(--hazard) 14px,
+    var(--ink) 14px,
+    var(--ink) 28px
+  );
 }
-.dim-line .stroke::before { left: 0; }
-.dim-line .stroke::after { right: 0; }
 
 .nav-link {
-  color: var(--paper);
-  opacity: 0.6;
+  color: var(--ink);
   text-decoration: none;
-  font-size: 0.86rem;
-  padding-bottom: 3px;
-  border-bottom: 1px solid transparent;
-  transition: opacity 0.25s ease, border-color 0.25s ease;
-  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.75;
 }
-.nav-link:hover, .nav-link.active { opacity: 1; border-color: var(--ember); }
+.nav-link:hover, .nav-link.active { opacity: 1; border-color: var(--rust); }
 
-.btn-primary {
-  background: var(--ember);
-  color: #0c1015;
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
   font-weight: 600;
-  transition: background 0.25s ease, transform 0.25s ease;
+  font-size: 0.9rem;
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-.btn-primary:hover { background: #ef7530; transform: translateY(-1px); }
+.btn-solid { background: var(--rust); color: #fff; }
+.btn-solid:hover { background: #942f14; }
+.btn-line { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
 
-.btn-outline {
-  border: 1px solid var(--line-strong);
-  color: var(--paper);
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-.btn-outline:hover { border-color: var(--ember); background: var(--ember-soft); }
-
-.frame-photo {
-  position: relative;
+.photo {
+  border: 1px solid var(--rule);
   overflow: hidden;
-  border: 1px solid var(--line-strong);
 }
-.frame-photo img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(0.15) contrast(1.05);
-  transition: transform 1s cubic-bezier(0.16,1,0.3,1), filter 1s ease;
-}
-.frame-photo:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1.1); }
-.frame-photo .coord {
-  position: absolute; bottom: 10px; left: 10px;
-  font-size: 0.65rem; letter-spacing: 0.05em;
-  background: rgba(12, 36, 64, 0.8);
-  padding: 4px 8px;
-  border: 1px solid var(--line);
-}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.index-row {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 24px;
-  padding: 32px 0;
-  border-top: 1px solid var(--line);
-  align-items: start;
+.svc {
+  padding: 40px 0;
 }
-.index-row:last-child { border-bottom: 1px solid var(--line); }
-.index-code { color: var(--ember); opacity: 0.9; font-size: 0.85rem; padding-top: 4px; }
+.svc h3 { font-size: 1.5rem; }
 
-.legal-text { color: rgba(238,244,248,0.65); font-size: 0.88rem; line-height: 1.8; }
-.legal-text h3 {
-  color: var(--paper);
+.legal p { color: var(--steel); font-size: 0.92rem; line-height: 1.8; }
+.legal h3 {
+  font-family: 'Public Sans', sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
   font-weight: 600;
+  font-size: 0.95rem;
   margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.9;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
 }
 
 .modal {
   display: none;
   position: fixed; inset: 0;
-  background: rgba(6, 16, 28, 0.92);
+  background: rgba(23, 24, 26, 0.85);
   z-index: 2000;
   align-items: center; justify-content: center;
   padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
-.modal.active { display: flex; opacity: 1; }
+.modal.active { display: flex; }
 
 .field {
   width: 100%;
-  background: rgba(238,244,248,0.04);
-  border: 1px solid var(--line);
-  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  padding: 15px;
   outline: none;
-  color: var(--paper);
-  font-family: 'Space Grotesk', sans-serif;
-  transition: border-color 0.25s ease;
+  color: var(--ink);
+  font-family: 'Public Sans', sans-serif;
+  border-radius: 2px;
 }
-.field:focus { border-color: var(--ember); }
-.field::placeholder { color: rgba(238,244,248,0.4); }
-
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--blueprint-deep); }
-::-webkit-scrollbar-thumb { background: var(--line-strong); }
-::-webkit-scrollbar-thumb:hover { background: var(--ember); }
+.field:focus { border-color: var(--rust); }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  * { transition: none !important; }
 }
 </style>
 </head>
 <body>
 
 <!-- Header -->
-<header class="fixed w-full top-0 z-50 px-6 md:px-12 py-5 backdrop-blur-sm border-b border-white/10" style="background: rgba(18,49,82,0.85);">
-  <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<header class="fixed w-full top-0 z-50" style="background: var(--paper);">
+  <div class="max-w-[1320px] mx-auto flex items-center justify-between px-6 md:px-10 py-5 rule-b">
 
     <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToSection('home')">
-      <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="8" width="84" height="84" stroke="var(--line-strong)" stroke-width="1.5"/>
-        <path d="M25 72V28h14l11 30 11-30h14v44" stroke="#eef4f8" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
-        <line x1="8" y1="50" x2="20" y2="50" stroke="var(--ember)" stroke-width="3"/>
-        <line x1="80" y1="50" x2="92" y2="50" stroke="var(--ember)" stroke-width="3"/>
+      <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25 75V25h16l9 28 9-28h16v50" stroke="var(--ink)" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
       </svg>
-      <div class="flex flex-col leading-none">
-        <span class="font-semibold tracking-tight text-[15px]">E&nbsp;&amp;&nbsp;W Metalvision</span>
-        <span class="mono text-[10px] opacity-45 mt-1">Schweißfachbetrieb · Hude</span>
+      <div class="leading-none">
+        <div class="display font-semibold text-[15px]">E &amp; W Metalvision</div>
+        <div class="text-[11px] mt-1 text-[var(--steel)]">Schweißfachbetrieb · Hude</div>
       </div>
     </div>
 
-    <nav class="hidden lg:flex items-center gap-10">
+    <nav class="hidden lg:flex items-center gap-9">
       <span class="nav-link active" onclick="scrollToSection('home')">Start</span>
       <span class="nav-link" onclick="scrollToSection('leistungen')">Leistungen</span>
       <span class="nav-link" onclick="scrollToSection('ueber')">Über uns</span>
       <span class="nav-link" onclick="scrollToSection('impressum')">Impressum</span>
     </nav>
 
-    <button onclick="openModal()" class="btn-primary px-6 py-2.5 text-[13px] hidden sm:block">Anfrage stellen</button>
+    <button onclick="openModal()" class="btn btn-solid hidden sm:inline-block text-[13px] py-3 px-6">Anfrage stellen</button>
   </div>
 </header>
+<div class="hazard-trim mt-[89px]"></div>
 
-<main class="max-w-[1440px] mx-auto px-6 md:px-12">
+<main class="max-w-[1320px] mx-auto px-6 md:px-10">
 
   <!-- Hero -->
-  <section id="home" class="relative pt-40 pb-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-    <div class="grid-field"></div>
-
-    <div class="lg:col-span-7 relative z-10">
-      <div class="mono text-[12px] tracking-[0.15em] opacity-55 mb-6">
-        WERK-NR. 001 &nbsp;/&nbsp; ZERTIFIZIERTER SCHWEISSFACHBETRIEB &nbsp;/&nbsp; HUDE, NIEDERSACHSEN
-      </div>
-      <h1 class="text-[13vw] leading-[0.95] lg:text-[5.6rem] font-semibold tracking-tight mb-8">
-        Stahl, exakt<br>nach Maß geformt.
+  <section id="home" class="pt-24 pb-28 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-6">
+      <h1 class="text-[3rem] md:text-[3.8rem] leading-[1.05] font-semibold mb-8">
+        Stahl, verarbeitet mit Handwerk und Präzision.
       </h1>
-      <p class="text-lg opacity-70 max-w-xl leading-relaxed mb-10">
-        E &amp; W Metalvision GmbH plant, schweißt und montiert Stahl- und Metallbaukonstruktionen für Industrie und Gewerbe — von der ersten Skizze bis zur fertigen Naht.
+      <p class="text-lg text-[var(--steel)] leading-relaxed mb-6 max-w-lg">
+        E &amp; W Metalvision GmbH plant, schweißt und montiert Stahl- und Metallbaukonstruktionen für Industrie und Gewerbe.
       </p>
+      <p class="text-sm text-[var(--steel)] mb-10">Zertifizierter Schweißfachbetrieb, MAG &amp; WIG. Sitz in Hude, Niedersachsen.</p>
       <div class="flex flex-wrap gap-4">
-        <button onclick="scrollToSection('leistungen')" class="btn-primary px-8 py-4 text-sm">Leistungsverzeichnis ansehen</button>
-        <button onclick="scrollToSection('ueber')" class="btn-outline px-8 py-4 text-sm">Über das Unternehmen</button>
+        <a onclick="scrollToSection('leistungen')" class="btn btn-solid cursor-pointer">Unsere Leistungen</a>
+        <a onclick="scrollToSection('ueber')" class="btn btn-line cursor-pointer">Über uns</a>
       </div>
     </div>
-
-    <div class="lg:col-span-5 relative z-10">
-      <div class="dim-line mono text-xs mb-4">
-        <span>MAG</span><span class="stroke"></span><span>WIG</span><span class="stroke"></span><span>ZERT.</span>
-      </div>
-      <div class="frame-photo h-[360px] regmark">
+    <div class="lg:col-span-6">
+      <div class="photo h-[420px]">
         <img src="https://www.ir-bauen.com/uploads/media/1200x630/01/91-Industriebau%20%284%29.jpg?v=1-0" alt="Industriehalle im Stahlbau">
-        <span class="coord mono">FIG. 01 — INDUSTRIEHALLE</span>
+      </div>
+      <p class="text-xs text-[var(--steel)] mt-3">Industriehalle, Stahlbaukonstruktion</p>
+    </div>
+  </section>
+
+  <!-- Referenzen -->
+  <section class="pb-28 rule pt-20">
+    <h2 class="text-2xl font-semibold mb-12">Referenzen aus unserer Arbeit</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="photo h-[240px]">
+          <img src="https://plus.unsplash.com/premium_photo-1673266203719-85fa77b31ec8?w=800&auto=format&fit=crop&q=60" alt="Feuertreppe aus Stahl">
+        </div>
+        <p class="text-xs text-[var(--steel)] mt-3">Feuertreppe, montiert nach Norm</p>
+      </div>
+      <div>
+        <div class="photo h-[240px]">
+          <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=1000&auto=format&fit=crop" alt="Holzlagerschrank aus Metall">
+        </div>
+        <p class="text-xs text-[var(--steel)] mt-3">Holzlager, individuelle Konstruktion</p>
+      </div>
+      <div>
+        <div class="photo h-[240px]">
+          <img src="https://hydro-cleansing.de/fileadmin/_processed_/2/f/csm_restoil-gmbh-entsorgung-bohrschlamm-01_4239f4cc68.jpg" alt="Bohrschlammrutsche aus Stahl">
+        </div>
+        <p class="text-xs text-[var(--steel)] mt-3">Schlammrutsche für Industrieanlage</p>
       </div>
     </div>
   </section>
 
-  <!-- Werkübersicht / Gallery -->
-  <section class="mb-40 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="frame-photo h-[280px]">
-      <img src="https://plus.unsplash.com/premium_photo-1673266203719-85fa77b31ec8?w=800&auto=format&fit=crop&q=60" alt="Feuertreppe aus Stahl">
-      <span class="coord mono">FIG. 02 — FEUERTREPPE</span>
-    </div>
-    <div class="frame-photo h-[280px]">
-      <img src="https://plus.unsplash.com/premium_photo-1663051086785-1c1c40526f6f?q=80&w=1000&auto=format&fit=crop" alt="Holzlagerschrank aus Metall">
-      <span class="coord mono">FIG. 03 — HOLZLAGER</span>
-    </div>
-    <div class="frame-photo h-[280px]">
-      <img src="https://hydro-cleansing.de/fileadmin/_processed_/2/f/csm_restoil-gmbh-entsorgung-bohrschlamm-01_4239f4cc68.jpg" alt="Bohrschlammrutsche aus Stahl">
-      <span class="coord mono">FIG. 04 — SCHLAMMRUTSCHE</span>
-    </div>
-  </section>
+  <!-- Leistungen -->
+  <section id="leistungen" class="pb-28 rule pt-20">
+    <h2 class="text-2xl font-semibold mb-2">Unsere Leistungen</h2>
+    <p class="text-[var(--steel)] max-w-xl mb-4">Vier Gewerke, ein Betrieb — von der Schweißnaht bis zur laufenden Wartung.</p>
 
-  <!-- Leistungsverzeichnis -->
-  <section id="leistungen" class="mb-40">
-    <div class="flex flex-col md:flex-row justify-between items-baseline mb-4 gap-4">
-      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Leistungsverzeichnis</h2>
-      <span class="mono text-xs opacity-45">ABSCHNITT 02 / 04</span>
+    <div class="svc rule-b">
+      <h3 class="font-semibold mb-3">Schweißfachbetrieb</h3>
+      <p class="text-[var(--steel)] leading-relaxed max-w-2xl">Wir führen Schweißarbeiten in den Verfahren MAG und WIG durch. Als zertifizierter Schweißfachbetrieb garantieren wir höchste Qualität und Präzision bei jedem Projekt.</p>
     </div>
-    <p class="opacity-60 max-w-2xl mb-4">Vier Gewerke, ein Betrieb — von der Schweißnaht bis zur laufenden Wartung.</p>
-
-    <div class="index-row">
-      <span class="index-code mono">§01</span>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Schweißfachbetrieb</h3>
-        <p class="opacity-65 leading-relaxed max-w-2xl">Wir führen Schweißarbeiten in den Verfahren MAG und WIG durch. Als zertifizierter Schweißfachbetrieb garantieren wir höchste Qualität und Präzision bei jedem Projekt.</p>
-      </div>
+    <div class="svc rule-b">
+      <h3 class="font-semibold mb-3">Stahlbau</h3>
+      <p class="text-[var(--steel)] leading-relaxed max-w-2xl">Wir planen, fertigen und montieren individuelle Stahlbaukonstruktionen. Robuste Lösungen für Industrie- und Gewerbebauten, exakt nach Ihren Vorgaben.</p>
     </div>
-    <div class="index-row">
-      <span class="index-code mono">§02</span>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Stahlbau</h3>
-        <p class="opacity-65 leading-relaxed max-w-2xl">Wir planen, fertigen und montieren individuelle Stahlbaukonstruktionen — robuste Lösungen für Industrie- und Gewerbebauten, exakt nach Ihren Vorgaben.</p>
-      </div>
+    <div class="svc rule-b">
+      <h3 class="font-semibold mb-3">Metallbau</h3>
+      <p class="text-[var(--steel)] leading-relaxed max-w-2xl">Ihr Partner für anspruchsvolle Metallbauarbeiten: von Treppen und Geländern bis zu individuellen Sonderkonstruktionen, maßgeschneidert aus einer Hand.</p>
     </div>
-    <div class="index-row">
-      <span class="index-code mono">§03</span>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Metallbau</h3>
-        <p class="opacity-65 leading-relaxed max-w-2xl">Ihr Partner für anspruchsvolle Metallbauarbeiten: von Treppen und Geländern bis zu individuellen Sonderkonstruktionen — maßgeschneidert aus einer Hand.</p>
-      </div>
-    </div>
-    <div class="index-row">
-      <span class="index-code mono">§04</span>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Planung, Montage &amp; Wartung</h3>
-        <p class="opacity-65 leading-relaxed max-w-2xl">Wir begleiten Ihr Projekt ganzheitlich — von der ersten Planungsskizze über sicheren Transport und fachgerechte Montage bis zur regelmäßigen Wartung Ihrer Anlagen.</p>
-      </div>
+    <div class="svc">
+      <h3 class="font-semibold mb-3">Planung, Montage &amp; Wartung</h3>
+      <p class="text-[var(--steel)] leading-relaxed max-w-2xl">Wir begleiten Ihr Projekt ganzheitlich: von der ersten Planungsskizze über sicheren Transport und fachgerechte Montage bis zur regelmäßigen Wartung Ihrer Anlagen.</p>
     </div>
   </section>
 
   <!-- Über uns -->
-  <section id="ueber" class="panel p-10 md:p-16 mb-40">
-    <span class="panel-tag mono">ABSCHNITT 03</span>
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+  <section id="ueber" class="pb-28 rule pt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14">
       <div class="lg:col-span-5">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Metall ist unser Handwerk.</h2>
-        <div class="dim-line mono text-xs">
-          <span>GEGRÜNDET</span><span class="stroke"></span><span>HRB 218924</span>
-        </div>
+        <h2 class="text-2xl font-semibold mb-4">Metall ist unser Handwerk</h2>
+        <p class="text-[var(--steel)]">Amtsgericht Oldenburg, HRB 218924</p>
       </div>
       <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-10">
-        <p class="opacity-70 leading-relaxed">E &amp; W Metalvision GmbH ist ein vielseitiges Unternehmen im Metallbau, getragen von erfahrenen Mitarbeitern, die sich in ihren jeweiligen Bereichen bewährt haben.</p>
-        <p class="opacity-70 leading-relaxed">Unser Ziel ist es, Projekte nicht nur zu entwerfen, sondern Visionen in Metall zu verwandeln. Ihre Zufriedenheit steht im Mittelpunkt jeder Schweißnaht.</p>
+        <p class="text-[var(--steel)] leading-relaxed">E &amp; W Metalvision GmbH ist ein vielseitiges Unternehmen im Metallbau, getragen von erfahrenen Mitarbeitern, die sich in ihren jeweiligen Bereichen bewährt haben.</p>
+        <p class="text-[var(--steel)] leading-relaxed">Unser Ziel ist es, Projekte nicht nur zu entwerfen, sondern Visionen in Metall zu verwandeln. Ihre Zufriedenheit steht im Mittelpunkt jeder Schweißnaht.</p>
       </div>
     </div>
   </section>
 
   <!-- Impressum -->
-  <section id="impressum" class="mb-32">
-    <div class="flex justify-between items-baseline mb-10">
-      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Impressum</h2>
-      <span class="mono text-xs opacity-45">ABSCHNITT 04 / 04</span>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      <div class="legal-text">
+  <section id="impressum" class="pb-24 rule pt-20">
+    <h2 class="text-2xl font-semibold mb-10">Impressum</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 legal">
+      <div>
         <h3>Angaben gem. § 5 TMG</h3>
         <p>
           E &amp; W Metalvision GmbH<br>
           Im Gewerbepark 4<br>
           27798 Hude<br>
           Deutschland<br>
-          <a href="http://www.ew-metalvision.de" class="underline" style="color: var(--ember);">www.ew-metalvision.de</a>
+          <a href="http://www.ew-metalvision.de" style="color: var(--rust);">www.ew-metalvision.de</a>
         </p>
-        <p class="mt-4 mono text-[13px]">
+        <p class="mt-3">
           Registergericht: Amtsgericht Oldenburg<br>
           Registernummer: HRB 218924<br>
           USt-IdNr. gem. § 27a UStG: DE357580663
@@ -362,9 +265,9 @@ body {
         <h3>Kontakt</h3>
         <p>E-Mail: info@ew-metalvision.de<br>Telefon: +49 4408 9845368</p>
       </div>
-      <div class="legal-text">
+      <div>
         <h3>Streitbeilegung</h3>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" class="underline" style="color: var(--ember);">ec.europa.eu/consumers/odr</a>.</p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" style="color: var(--rust);">ec.europa.eu/consumers/odr</a>.</p>
         <h3>Haftung für Inhalte</h3>
         <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität können wir jedoch keine Gewähr übernehmen.</p>
         <h3>Urheberrecht</h3>
@@ -376,38 +279,35 @@ body {
 </main>
 
 <!-- Footer -->
-<footer id="kontakt" class="px-6 md:px-12 pb-20">
-  <div class="max-w-[1440px] mx-auto panel p-12 md:p-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-      <div class="lg:col-span-2">
-        <div class="text-2xl font-semibold tracking-tight mb-4">E &amp; W Metalvision</div>
-        <p class="opacity-55 max-w-sm leading-relaxed">Meisterhafte Metallbearbeitung aus Hude. Wir setzen Ihre Visionen in Stahl um.</p>
-      </div>
-      <div>
-        <h4 class="mono text-[11px] opacity-45 mb-4">ZENTRALE</h4>
-        <address class="not-italic opacity-70 text-sm leading-relaxed">Im Gewerbepark 4<br>27798 Hude</address>
-      </div>
-      <div>
-        <h4 class="mono text-[11px] opacity-45 mb-4">KONTAKT</h4>
-        <p class="font-semibold">+49 4408 9845368</p>
-        <p class="opacity-70 text-sm">info@ew-metalvision.de</p>
-      </div>
+<footer id="kontakt" class="rule" style="background: #eceae5;">
+  <div class="max-w-[1320px] mx-auto px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="lg:col-span-2">
+      <div class="display text-xl font-semibold mb-4">E &amp; W Metalvision</div>
+      <p class="text-[var(--steel)] max-w-sm leading-relaxed">Meisterhafte Metallbearbeitung aus Hude. Wir setzen Ihre Visionen in Stahl um.</p>
     </div>
-    <div class="mt-12 pt-8 border-t border-white/10 mono text-[10px] opacity-30">made by philipp dachtler</div>
+    <div>
+      <h4 class="font-semibold text-sm mb-4">Zentrale</h4>
+      <address class="not-italic text-[var(--steel)] text-sm leading-relaxed">Im Gewerbepark 4<br>27798 Hude</address>
+    </div>
+    <div>
+      <h4 class="font-semibold text-sm mb-4">Kontakt</h4>
+      <p class="font-semibold">+49 4408 9845368</p>
+      <p class="text-[var(--steel)] text-sm">info@ew-metalvision.de</p>
+    </div>
   </div>
+  <div class="max-w-[1320px] mx-auto px-6 md:px-10 pb-8 text-xs text-[var(--steel)]">made by philipp dachtler</div>
 </footer>
 
 <!-- Anfrage Modal -->
 <div id="infoModal" class="modal">
-  <div class="panel p-10 max-w-lg w-full relative" style="background: var(--blueprint-deep);">
-    <span class="panel-tag mono">ANFRAGE</span>
-    <button onclick="closeModal()" class="absolute top-6 right-6 opacity-50 hover:opacity-100 text-xl">&times;</button>
-    <h2 class="text-2xl font-semibold tracking-tight mb-8">Direkt-Anfrage</h2>
+  <div class="p-10 max-w-lg w-full relative" style="background: var(--paper); border-radius: 2px;">
+    <button onclick="closeModal()" class="absolute top-6 right-6 text-xl">&times;</button>
+    <h2 class="text-xl font-semibold mb-8">Direkt-Anfrage</h2>
     <div id="modalContent" class="space-y-4">
       <input type="text" placeholder="Name" class="field">
       <input type="email" placeholder="E-Mail" class="field">
       <textarea placeholder="Nachricht..." class="field h-28"></textarea>
-      <button onclick="showSuccess()" class="btn-primary w-full py-4">Senden</button>
+      <button onclick="showSuccess()" class="btn btn-solid w-full">Senden</button>
     </div>
   </div>
 </div>
@@ -420,7 +320,7 @@ function scrollToSection(id) {
 function openModal() { document.getElementById('infoModal').classList.add('active'); }
 function closeModal() { document.getElementById('infoModal').classList.remove('active'); }
 function showSuccess() {
-  document.getElementById('modalContent').innerHTML = '<div class="text-center py-10 font-semibold" style="color: var(--ember);">Danke! Wir melden uns zeitnah bei Ihnen.</div>';
+  document.getElementById('modalContent').innerHTML = '<div class="text-center py-10 font-semibold" style="color: var(--rust);">Danke! Wir melden uns zeitnah bei Ihnen.</div>';
   setTimeout(closeModal, 2200);
 }
 
